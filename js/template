@@ -1,0 +1,85 @@
+class DisplaySearch {
+    constructor(Recipes) {
+        this.Recipes = Recipes
+        this.isSearchingByAppliance = false
+        this.isSearchingByUstensil = false
+
+        this.IngredientSearch = new IngredientSearch(Recipes)
+        this.ApplianceSearch = new ApplianceSearch(Recipes)
+        this.UstensilSearch = new UstensilSearch(Recipes)
+
+        this.searchFormWrapper = document.getElementById('recherche')
+            // this.$recipesWrapper = document.querySelector('.recipes-wrapper')
+    }
+
+    search(query) {
+        let SearchedRecipe = null
+
+        if (this.isSearchingByAppliance) {
+            SearchedRecipe = this.ApplianceSearch.search(query)
+        } else {
+            SearchedRecipe = this.IngredientSearch.search(query)
+        }
+
+        this.displayRecipes(SearchedRecipe)
+    }
+
+    // clearRecipesWrapper() {
+    //     this.$recipesWrapper.innerHTML = ""
+    // }
+
+    // displayRecipes(Recipes) {
+    //     this.clearRecipesWrapper()
+
+    //     Recipes.forEach(Recipes => {
+    //         const Template = new RecipeCard(Recipes)
+    //         this.$recipesWrapper.appendChild(Template.createRecipeCard())
+    //     })
+    // }
+
+    onSearch() {
+        this.$wrapper
+            .getElementById('recherche')
+            .addEventListener('keyup', e => {
+                const query = e.target.value
+
+                if (query.length >= 3) {
+                    this.search(query)
+                } else if (query.length === 0) {
+                    this.displayRecipes(this.Recipes)
+                }
+            })
+    }
+
+    onChangeSearch() {
+        this.$wrapper
+            .getElementById('recherche')
+            .addEventListener('change', e => {
+                this.isSearchingByAppliance = e.target.checked
+
+                console.log(this.isSearchingByAppliance)
+            })
+    }
+
+    render() {
+        const searchForm = `
+            <form action="#" method="POST">
+                <div class="search-input">
+                    <label for="search">Rechercher : </label> 
+                    <input id="search" type="text">
+                </div>
+                <div class="search-checkbox">
+                    <label for="actor">Rechercher par acteur</label>
+                    <input id="actor" type="checkbox" />
+                </div>
+            </form>
+        `
+
+        this.$wrapper.innerHTML = searchForm
+
+        this.onSearch()
+        this.onChangeSearch()
+
+        this.$searchFormWrapper.appendChild(this.$wrapper)
+    }
+}
