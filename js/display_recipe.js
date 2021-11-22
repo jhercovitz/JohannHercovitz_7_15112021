@@ -1,7 +1,6 @@
-const recipes = []
-const ingredients = []
-const appareils = []
-const ustensiles = []
+// const ingredients = []
+// const appareils = []
+// const ustensiles = []
 
 // const searchByIngredient = query => ingredients.filter(
 //     ingredients => ingredients.ingredient.toLowerCase().includes(query.toLowerCase())
@@ -17,8 +16,8 @@ const ustensiles = []
 
 
 class Search {
-    constructor(recipes) {
-        this.recipes = recipes
+    constructor(Recipes) {
+        this.Recipes = Recipes
     }
 
     search(query) {
@@ -28,38 +27,38 @@ class Search {
 
 
 class IngredientSearch extends Search {
-    constructor(recipes) {
-        super(recipes)
+    constructor(Recipes) {
+        super(Recipes)
     }
 
     filterRecipes(query) {
-        return this.recipes.filter(recipes =>
-            recipes.ingredients.toLowerCase().includes(query.toLowerCase())
+        return this.Recipes.filter(Recipe =>
+            Recipe.ingredients.toLowerCase().includes(query.toLowerCase())
         )
     }
 }
 
 
 class ApplianceSearch extends Search {
-    constructor(recipes) {
-        super(recipes)
+    constructor(Recipes) {
+        super(Recipes)
     }
 
     filterRecipes(query) {
-        return this.recipes.filter(recipes =>
-            recipes.appliance.toLowerCase().includes(query.toLowerCase())
+        return this.Recipes.filter(Recipe =>
+            Recipe.appliance.toLowerCase().includes(query.toLowerCase())
         )
     }
 }
 
 class UstensilSearch extends Search {
-    constructor(recipes) {
-        super(recipes)
+    constructor(Recipes) {
+        super(Recipes)
     }
 
     filterRecipes(query) {
-        return this.recipes.filter(recipes =>
-            recipes.ustensils.toLowerCase().includes(query.toLowerCase())
+        return this.Recipes.filter(Recipe =>
+            Recipe.ustensils.toLowerCase().includes(query.toLowerCase())
         )
     }
 }
