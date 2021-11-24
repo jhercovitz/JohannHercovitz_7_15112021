@@ -33,7 +33,7 @@ header {
 
 #recherche {
     height: 70px;
-    width: 87.4%;
+    width: 89%;
     padding-left: 1.5%;
     border: none;
     font-size: 18px;
@@ -41,6 +41,7 @@ header {
     border-radius: 5px;
     position: absolute;
     z-index: 0;
+    outline: none;
 }
 
 #recherche::placeholder {
@@ -53,7 +54,7 @@ header {
     background-color: #f2f1f1;
     border-radius: 0px 5px 5px 0px;
     color: transparent;
-    height: 70px;
+    height: 68px;
     width: 5.2%;
     border: none;
     cursor: pointer;

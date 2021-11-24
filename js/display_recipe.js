@@ -1,20 +1,3 @@
-// const ingredients = []
-// const appareils = []
-// const ustensiles = []
-
-// const searchByIngredient = query => ingredients.filter(
-//     ingredients => ingredients.ingredient.toLowerCase().includes(query.toLowerCase())
-// )
-
-// const searchByAppliance = query => appareils.filter(
-//     appareils => appareils.appliance.toLowerCase().includes(query.toLowerCase())
-// )
-
-// const searchByUstensils = query => ustensiles.filter(
-//     ustensiles => ustensiles.ustensils.toLowerCase().includes(query.toLowerCase())
-// )
-
-
 class Search {
     constructor(Recipes) {
         this.Recipes = Recipes
