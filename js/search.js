@@ -11,12 +11,16 @@ function displayRecipe(name, description, ingredients, time) {
     // manipuler la page pour y ajouter la carte de recette
     let recipeCard =
         `<div class="recettes">
+        <div class="gris_fonce"></div>
         <p class="p1">${name}</p>
-        <p class="p4">${time}</p>
-        <p class="p2">${ingredients}</p>
+        <i class="far fa-clock item">
+        <p class="p4">${time}</p></i>
+        <div class="ingredients_recette">
+        <p class="p2">${ingredients.map(ingredients => `${ingredients.ingredient} : ${ingredients.quantity} ${ingredients.unit} <br>`)}</p>
         </div>
         <div class="description">
         <p class="p3">${description}</p>
+        </div>
         </div>`;
 
 
@@ -27,7 +31,7 @@ function displayRecipe(name, description, ingredients, time) {
 displayRecipe("Limonade de Coco", "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée", [{ "ingredient": "Lait de coco", "quantity": 400, "unit": "ml" },
     { "ingredient": "Jus de citron", "quantity": 2 },
     { "ingredient": "Crème de coco", "quantity": 2, "unit": "cuillères à soupe" },
-    { "ingredient": "Sucre", "quantite": 30, "unit": "grammes" },
+    { "ingredient": "Sucre", "quantity": 30, "unit": "grammes" },
     { "ingredient": "Glaçons" }
 ], "10 min")
 
