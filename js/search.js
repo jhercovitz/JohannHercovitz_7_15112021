@@ -16,17 +16,23 @@ function displayRecipe(name, description, ingredients, time) {
         <i class="far fa-clock item">
         <p class="p4">${time}</p></i>
         <div class="ingredients_recette">
-        <p class="p2">${ingredients.map(ingredients => `${ingredients.ingredient} : ${ingredients.quantity} ${ingredients.unit} <br>`)}</p>
+        <p class="p2">${ingredients.map(ingredients => `${ingredients.ingredient}: ${ingredients.quantity} ${ingredients.unit}<br>`)}</p>
         </div>
         <div class="description">
         <p class="p3">${description}</p>
         </div>
         </div>`;
 
-
+        // if (ingredients.quantity.length <= 0) {
+        //      return ''
+        // }if (ingredients.unit.length <= 0) {
+        //     return ''
+        // }
+        
     document.body.innerHTML = recipeCard;
     console.log(recipeCard)
 }
+
 
 displayRecipe("Limonade de Coco", "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée", [{ "ingredient": "Lait de coco", "quantity": 400, "unit": "ml" },
     { "ingredient": "Jus de citron", "quantity": 2 },
