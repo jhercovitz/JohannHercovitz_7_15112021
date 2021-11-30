@@ -22,7 +22,6 @@ function displayRecipe(name, description, ingredients, time) {
         <p class="p3">${description}</p>
         </div>
         </div>`;
-
     document.querySelector('section').innerHTML = recipeCard;
     console.log(recipeCard)
 }
