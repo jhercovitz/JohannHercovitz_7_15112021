@@ -1,9 +1,15 @@
 import { recipes } from "./recipes.js"
 
-const rechercheInput = document.getElementById('recherche')
+const searchInput = document.getElementById('recherche')
 
-rechercheInput.addEventListener('input', function(e) {
+searchInput.addEventListener('input', function(e) {
     console.log(e.target.value)
+
+    const recipe = [displayRecipe]
+    const filteredRecipe = recipe.filter(function(e) {
+        return searchInput
+    });
+    console.log(filteredRecipe);
 
 })
 
@@ -25,7 +31,6 @@ function displayRecipe(name, description, ingredients, time) {
     document.querySelector('section').innerHTML = recipeCard;
     console.log(recipeCard)
 }
-
 
 displayRecipe("Limonade de Coco", "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée", [{ "ingredient": "Lait de coco", "quantity": 400, "unit": "ml" },
     { "ingredient": "Jus de citron", "quantity": 2 },
