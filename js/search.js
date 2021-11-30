@@ -23,13 +23,7 @@ function displayRecipe(name, description, ingredients, time) {
         </div>
         </div>`;
 
-        // if (ingredients.quantity.length <= 0) {
-        //      return ''
-        // }if (ingredients.unit.length <= 0) {
-        //     return ''
-        // }
-        
-    document.body.innerHTML = recipeCard;
+    document.querySelector('section').innerHTML = recipeCard;
     console.log(recipeCard)
 }
 
