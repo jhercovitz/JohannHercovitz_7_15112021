@@ -76,11 +76,13 @@ const recipeArray = [
             },
             {
                 "ingredient": "Sucre",
-                "quantite": 30,
-                "unit": "grammes"
+                "quantity": 30,
+                "unit": "g"
             },
             {
-                "ingredient": "Glaçons"
+                "ingredient": "Glaçons",
+                "quantity": 2,
+                "unit": "" // modif manuelle pour supprmer undefined
             }
         ],
         "time": "10 min",
@@ -107,7 +109,7 @@ const recipeArray = [
             },
             {
                 "ingredient": "Carotte",
-                "quantite": 1
+                "quantity": 1
             },
             {
                 "ingredient": "Citron Vert",
@@ -162,6 +164,7 @@ const recipeArray = [
     },
 ];
 let recipeCard = ``;
+
 recipeArray.forEach(function(displayRecipe) {
             recipeCard =
                 recipeCard +
@@ -171,15 +174,19 @@ recipeArray.forEach(function(displayRecipe) {
         <i class="far fa-clock item">
         <p class="p4">${displayRecipe.time}</p></i>
         <div class="ingredients_recette">
-        <p class="p2">${displayRecipe.ingredients.map(ingredients => `${ingredients.ingredient}: ${ingredients.quantity} ${ingredients.unit}<br>`)}</p>
+        <p class="p2">${displayRecipe.ingredients.map(ingredients => `${ingredients.ingredient}: ${ingredients.quantity} ${ingredients.unit}<br>`).join(' ')}</p>
         </div>
         <div class="description">
         <p class="p3">${displayRecipe.description}</p>
         </div>
         </div>`;
+       });
+
         document.querySelector('section').innerHTML = recipeCard;
-        console.log(recipeCard)    
-});
+        console.log(recipeCard);   
+
+        // retirer les undefined sans modifier le tableau manuellement
+
 
 
 
