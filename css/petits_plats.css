@@ -96,50 +96,80 @@ header {
 
 .ingredient {
     font-family: 'lato';
+    font-weight: 700;
+    color: white;
+    font-size: 18px;
+    padding-left: 20px;
     background-color: #3282F7;
     border-radius: 5px;
-    font-weight: 700;
     border: none;
     height: 75px;
-    font-size: 18px;
-    color: white;
     padding-right: 4%;
     z-index: 0;
     width: 190px;
     position: absolute;
     margin-top: 10px;
+    outline: none;
+}
+
+.ingredient::placeholder {
+    color: white;
+}
+
+.ingredient::-webkit-search-cancel-button {
+    display: none;
 }
 
 .appareil {
     font-family: 'lato';
+    font-weight: 700;
+    color: white;
+    font-size: 18px;
+    padding-left: 20px;
     background-color: #68D9A4;
     border-radius: 5px;
-    font-weight: 700;
     border: none;
     height: 75px;
-    font-size: 18px;
-    color: white;
     padding-right: 4%;
     z-index: 0;
     width: 190px;
     position: absolute;
     margin-top: 10px;
+    outline: none;
+}
+
+.appareil::placeholder {
+    color: white;
+}
+
+.appareil::-webkit-search-cancel-button {
+    display: none;
 }
 
 .ustensile {
     font-family: 'lato';
-    background-color: #ED6454;
     border-radius: 5px;
     font-weight: 700;
+    color: white;
+    padding-left: 20px;
     border: none;
+    background-color: #ED6454;
     height: 75px;
     font-size: 18px;
-    color: white;
     padding-right: 4%;
     z-index: 0;
     width: 190px;
     position: absolute;
     margin-top: 10px;
+    outline: none;
+}
+
+.ustensile::placeholder {
+    color: white;
+}
+
+.ustensile::-webkit-search-cancel-button {
+    display: none;
 }
 
 

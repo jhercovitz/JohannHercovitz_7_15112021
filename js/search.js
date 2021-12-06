@@ -50,3 +50,36 @@ function displayRecipeList(recipeList) {
     });
 }
  displayRecipeList(recipes)
+
+
+//  function displayChevron(){
+//      const chevronDown = document.getElementsByClassName('fa-chevron-down');
+//      const chevronUp = document.getElementsByClassName('fa-chevron-up');
+
+//      chevronDown.addEventListener('click', function () {
+//              if (chevronDown.clicked == true) {
+//                  chevronDown.style.display = none;
+//                  chevronUp.style.display = block;
+//              } else if (chevronUp.clicked == true) {
+//                  chevronDown.style.display = block;
+//                  chevronUp.style.display = none;
+//              } else {
+//                  chevronUp.style.display = none;
+//              }
+//          });
+//     }
+
+// displayChevron();
+
+function filtersSearch () {
+    const selectFiltre = document.getElementsByClassName('select_filtre');
+    const chevronDown = document.getElementsByClassName('fa-chevron-down');
+
+    chevronDown.addEventListener('click', function () {
+        if (chevronDown.clicked == true) {
+            selectFiltre.style.width = "667px";
+            selectFiltre.style.height = "397px";
+        } 
+    });
+}
+filtersSearch ();
