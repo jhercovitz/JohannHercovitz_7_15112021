@@ -8,7 +8,6 @@ searchInput.addEventListener('input', function(e) {
 
     const filteredRecipe = recipes.filter(function(recipe) {
         if (userInput.length < 3) {
-            console.log('entrez au minimum 3 characteres');
             return recipes
         } else {
             return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.includes(userInput)
@@ -71,15 +70,18 @@ function displayRecipeList(recipeList) {
 
 // displayChevron();
 
-function filtersSearch () {
-    const selectFiltre = document.getElementsByClassName('select_filtre');
-    const chevronDown = document.getElementsByClassName('fa-chevron-down');
 
-    chevronDown.addEventListener('click', function () {
-        if (chevronDown.clicked == true) {
+
+// function filterSearch() {
+    
+    const chevronDown = document.querySelector('i');
+
+    chevronDown.addEventListener('click', function() {
+        const selectFiltre = document.getElementsByClassName('select_filtre');
             selectFiltre.style.width = "667px";
             selectFiltre.style.height = "397px";
-        } 
+            
+            console.log('devient big');
     });
-}
-filtersSearch ();
+    
+// }
