@@ -51,37 +51,60 @@ function displayRecipeList(recipeList) {
  displayRecipeList(recipes)
 
 
-//  function displayChevron(){
-//      const chevronDown = document.getElementsByClassName('fa-chevron-down');
-//      const chevronUp = document.getElementsByClassName('fa-chevron-up');
+    const chevronIngredientDown = document.getElementById('chevronIngredient');
+    const chevronIngredientUp = document.getElementById('chevronIngredientUp');
+    const chevronAppareilDown = document.getElementById('chevronAppareil');
+    const chevronAppareilUp = document.getElementById('chevronAppareilUp');
+    const chevronUstensileDown = document.getElementById('chevronUstensile');
+    const chevronUstensileUp = document.getElementById('chevronUstensileUp');
 
-//      chevronDown.addEventListener('click', function () {
-//              if (chevronDown.clicked == true) {
-//                  chevronDown.style.display = none;
-//                  chevronUp.style.display = block;
-//              } else if (chevronUp.clicked == true) {
-//                  chevronDown.style.display = block;
-//                  chevronUp.style.display = none;
-//              } else {
-//                  chevronUp.style.display = none;
-//              }
-//          });
-//     }
-
-// displayChevron();
-
-
-
-// function filterSearch() {
-    
-    const chevronDown = document.querySelector('i');
-
-    chevronDown.addEventListener('click', function() {
-        const selectFiltre = document.getElementsByClassName('select_filtre');
-            selectFiltre.style.width = "667px";
-            selectFiltre.style.height = "397px";
-            
+    chevronIngredientDown.addEventListener('click', function() {
+        const ingredientBig = document.getElementById('ingredient');
+            ingredientBig.style.width = "667px";
+            ingredientBig.style.height = "397px";
+            chevronIngredientDown.style.display = "none";
+            chevronIngredientUp.style.display = "block";    
             console.log('devient big');
     });
-    
-// }
+    chevronIngredientUp.addEventListener('click', function() {
+        const ingredientBig = document.getElementById('ingredient');
+            ingredientBig.style.width = "190px";
+            ingredientBig.style.height = "75px";
+            chevronIngredientDown.style.display = "block";
+            chevronIngredientUp.style.display = "none";    
+            console.log('devient petit');
+    });
+
+    chevronAppareilDown.addEventListener('click', function() {
+        const appareilBig = document.getElementById('appareil');
+        appareilBig.style.width = "667px";
+        appareilBig.style.height = "397px"; 
+        chevronAppareilDown.style.display = "none";
+        chevronAppareilUp.style.display = "block";    
+            console.log('devient big 2');
+    });
+    chevronAppareilUp.addEventListener('click', function() {
+        const appareilBig = document.getElementById('appareil');
+        appareilBig.style.width = "190px";
+        appareilBig.style.height = "75px";
+        chevronAppareilDown.style.display = "block";
+        chevronAppareilDown.style.display = "none";    
+            console.log('devient petit');
+    });
+
+    chevronUstensileDown.addEventListener('click', function() {
+        const ustensileBig = document.getElementById('ustensile');
+        ustensileBig.style.width = "667px";
+        ustensileBig.style.height = "397px";  
+        chevronUstensileDown.style.display = "none";
+        chevronUstensileUp.style.display = "block";  
+            console.log('devient big 3');
+    });
+    chevronUstensileUp.addEventListener('click', function() {
+        const ustensileBig = document.getElementById('ustensile');
+        ustensileBig.style.width = "190px";
+        ustensileBig.style.height = "75px";
+        chevronUstensileDown.style.display = "block";
+        chevronUstensileUp.style.display = "none";    
+            console.log('devient petit');
+    });
