@@ -20,6 +20,7 @@ searchInput.addEventListener('input', function(e) {
 })
 
 
+
 function displayRecipe(name, description, time, ingredients) {
     let recipeCard = ``;
     recipeCard =
@@ -47,6 +48,8 @@ function displayRecipeList(recipeList) {
 }
  displayRecipeList(recipes)
 
+
+
 function divBigger(){
     const chevronIngredientDown = document.getElementById('chevronIngredient');
     const chevronIngredientUp = document.getElementById('chevronIngredientUp');
@@ -62,31 +65,27 @@ function divBigger(){
         ingredientBig.style.width = "667px";
         ingredientBig.style.height = "397px";
         ingredientBig.style.paddingBottom = "320px";
-        ingredientBig.placeholder = "Recherche un ingrédient"
-        // ingredientBig.placeholder.opacity = 0.5
+        ingredientBig.placeholder = "Recherche un ingrédient";
+        // ingredientBig.placeholder.style.color = "red";
         chevronIngredientDown.style.display = "none";
         chevronIngredientUp.style.display = "block";
-        chevronIngredientUp.style.marginLeft = "620px"
-        appareilBig.style.marginLeft = "480px"  
-        ustensileBig.style.marginLeft = "480px"
-        chevronAppareilDown.style.marginLeft = "630px"
-        chevronUstensileDown.style.marginLeft = "630px"
-
-        console.log('devient big');
+        chevronIngredientUp.style.marginLeft = "620px";
+        appareilBig.style.marginLeft = "480px"; 
+        ustensileBig.style.marginLeft = "480px";
+        chevronAppareilDown.style.marginLeft = "630px";
+        chevronUstensileDown.style.marginLeft = "630px";
     });
     chevronIngredientUp.addEventListener('click', function() {
         ingredientBig.style.width = "190px";
         ingredientBig.style.height = "75px";
         ingredientBig.style.paddingBottom = "0";
-        ingredientBig.placeholder = "Ingrédients"
+        ingredientBig.placeholder = "Ingrédients";
         chevronIngredientDown.style.display = "block";
         chevronIngredientUp.style.display = "none";   
-        appareilBig.style.marginLeft = "0"  
-        ustensileBig.style.marginLeft = "0"
-        chevronAppareilDown.style.marginLeft = "152px"
-        chevronUstensileDown.style.marginLeft = "152px"
-
-        console.log('devient petit');
+        appareilBig.style.marginLeft = "0"; 
+        ustensileBig.style.marginLeft = "0";
+        chevronAppareilDown.style.marginLeft = "152px";
+        chevronUstensileDown.style.marginLeft = "152px";
     });
 
     chevronAppareilDown.addEventListener('click', function() {      
@@ -96,52 +95,52 @@ function divBigger(){
         appareilBig.placeholder = "Recherche un appareil" 
         chevronAppareilDown.style.display = "none";
         chevronAppareilUp.style.display = "block";
-        chevronAppareilUp.style.marginLeft = "620px"
-        ustensileBig.style.marginLeft = "480px"
-        chevronUstensileDown.style.marginLeft = "630px" 
-        console.log('devient big 2');
+        chevronAppareilUp.style.marginLeft = "620px";
+        ustensileBig.style.marginLeft = "480px";
+        chevronUstensileDown.style.marginLeft = "630px"; 
     });
     chevronAppareilUp.addEventListener('click', function() {
         appareilBig.style.width = "190px";
         appareilBig.style.height = "75px";
         appareilBig.style.paddingBottom = "0";
-        appareilBig.placeholder = "Appareil"
+        appareilBig.placeholder = "Appareil";
         chevronAppareilDown.style.display = "block";
         chevronAppareilUp.style.display = "none";
-        ustensileBig.style.marginLeft = "0"
+        ustensileBig.style.marginLeft = "0";
         chevronUstensileDown.style.marginLeft = "152px"    
-        console.log('devient petit');
     });
 
     chevronUstensileDown.addEventListener('click', function() {
         ustensileBig.style.width = "667px";
         ustensileBig.style.height = "397px";
         ustensileBig.style.paddingBottom = "320px";
-        ustensileBig.placeholder = "Recherche un ustensil"  
+        ustensileBig.placeholder = "Recherche un ustensil";  
         chevronUstensileDown.style.display = "none";
         chevronUstensileUp.style.display = "block";
-        chevronUstensileUp.style.marginLeft = "620px"  
-        console.log('devient big 3');
+        chevronUstensileUp.style.marginLeft = "620px";  
     });
     chevronUstensileUp.addEventListener('click', function() {
         ustensileBig.style.width = "190px";
         ustensileBig.style.height = "75px";
         ustensileBig.style.paddingBottom = "0";
-        ustensileBig.placeholder = "Ustensiles"
+        ustensileBig.placeholder = "Ustensiles";
         chevronUstensileDown.style.display = "block";
         chevronUstensileUp.style.display = "none";    
-        console.log('devient petit');
     });
 }
-divBigger();
+divBigger()
 
 
+function generateIngredients() {
+    const searchIngredient = document.getElementById('ingredient');
 
-// function generateIngredients(ingredientsList){
-//     document.getElementById('ingredient').innerHTML = "Recherche un ingredient";
-//     ingredientsList.forEach(function(recipe) {
-//         generateIngredients(recipe.ingredients)
-//     });
-//     console.log('liste ok');
-// }
-// generateIngredients(recipes)
+    searchIngredient.addEventListener('input', function() {
+        const filteredIngredient = recipes.filter(function(recipes) {
+            if (userInput.length < 3) {
+                return recipes.ingredients
+            }
+            console.log('liste ok');
+        });     
+    })
+}
+generateIngredients(filteredIngredient)
