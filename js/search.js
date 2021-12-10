@@ -6,11 +6,12 @@ searchInput.addEventListener('input', function(e) {
 
     const userInput = e.target.value.toLowerCase();
 
+
     const filteredRecipe = recipes.filter(function(recipe) {
         if (userInput.length < 3) {
             return recipes
         } else {
-            return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.includes(userInput)
+            return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
         }
 
     });
@@ -18,6 +19,7 @@ searchInput.addEventListener('input', function(e) {
     displayRecipeList(filteredRecipe);
 
 })
+
 
 
 
@@ -60,20 +62,21 @@ function divBigger(){
     const ingredientBig = document.getElementById('ingredient');
     const appareilBig = document.getElementById('appareil');
     const ustensileBig = document.getElementById('ustensile');
+    const section = document.querySelector('section');
 
-    chevronIngredientDown.addEventListener('click', function() {
+    chevronIngredientDown.addEventListener('click', function(e) {
+        // console.log(e.target)
         ingredientBig.style.width = "667px";
         ingredientBig.style.height = "397px";
         ingredientBig.style.paddingBottom = "320px";
         ingredientBig.placeholder = "Recherche un ingrédient";
-        // ingredientBig.placeholder.style.color = "red";
+        // ingredientBig.placeholder.style.opacity = "0.5";
         chevronIngredientDown.style.display = "none";
         chevronIngredientUp.style.display = "block";
         chevronIngredientUp.style.marginLeft = "620px";
-        appareilBig.style.marginLeft = "480px"; 
-        ustensileBig.style.marginLeft = "480px";
         chevronAppareilDown.style.marginLeft = "630px";
         chevronUstensileDown.style.marginLeft = "630px";
+        section.style.marginTop = "-260px";
     });
     chevronIngredientUp.addEventListener('click', function() {
         ingredientBig.style.width = "190px";
@@ -82,10 +85,9 @@ function divBigger(){
         ingredientBig.placeholder = "Ingrédients";
         chevronIngredientDown.style.display = "block";
         chevronIngredientUp.style.display = "none";   
-        appareilBig.style.marginLeft = "0"; 
-        ustensileBig.style.marginLeft = "0";
         chevronAppareilDown.style.marginLeft = "152px";
         chevronUstensileDown.style.marginLeft = "152px";
+        section.style.marginTop = "62px"; 
     });
 
     chevronAppareilDown.addEventListener('click', function() {      
@@ -96,8 +98,8 @@ function divBigger(){
         chevronAppareilDown.style.display = "none";
         chevronAppareilUp.style.display = "block";
         chevronAppareilUp.style.marginLeft = "620px";
-        ustensileBig.style.marginLeft = "480px";
-        chevronUstensileDown.style.marginLeft = "630px"; 
+        chevronUstensileDown.style.marginLeft = "630px";
+        section.style.marginTop = "-260px";
     });
     chevronAppareilUp.addEventListener('click', function() {
         appareilBig.style.width = "190px";
@@ -106,18 +108,19 @@ function divBigger(){
         appareilBig.placeholder = "Appareil";
         chevronAppareilDown.style.display = "block";
         chevronAppareilUp.style.display = "none";
-        ustensileBig.style.marginLeft = "0";
-        chevronUstensileDown.style.marginLeft = "152px"    
+        chevronUstensileDown.style.marginLeft = "152px"  
+        section.style.marginTop = "62px";   
     });
 
     chevronUstensileDown.addEventListener('click', function() {
         ustensileBig.style.width = "667px";
         ustensileBig.style.height = "397px";
         ustensileBig.style.paddingBottom = "320px";
-        ustensileBig.placeholder = "Recherche un ustensil";  
+        ustensileBig.placeholder = "Recherche un ustensile";  
         chevronUstensileDown.style.display = "none";
         chevronUstensileUp.style.display = "block";
-        chevronUstensileUp.style.marginLeft = "620px";  
+        chevronUstensileUp.style.marginLeft = "620px";
+        section.style.marginTop = "-260px";  
     });
     chevronUstensileUp.addEventListener('click', function() {
         ustensileBig.style.width = "190px";
@@ -125,22 +128,15 @@ function divBigger(){
         ustensileBig.style.paddingBottom = "0";
         ustensileBig.placeholder = "Ustensiles";
         chevronUstensileDown.style.display = "block";
-        chevronUstensileUp.style.display = "none";    
+        chevronUstensileUp.style.display = "none"; 
+        section.style.marginTop = "62px";   
     });
 }
 divBigger()
 
 
-function generateIngredients() {
-    const searchIngredient = document.getElementById('ingredient');
+function generateIngredients(listeDeRecette) {
 
-    searchIngredient.addEventListener('input', function() {
-        const filteredIngredient = recipes.filter(function(recipes) {
-            if (userInput.length < 3) {
-                return recipes.ingredients
-            }
-            console.log('liste ok');
-        });     
-    })
+   return ['Ail', 'Coco']
 }
-generateIngredients(filteredIngredient)
+const maListIng = generateIngredients(recipes)
