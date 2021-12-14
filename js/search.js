@@ -135,8 +135,26 @@ function divBigger(){
 divBigger()
 
 
-function generateIngredients(listeDeRecette) {
+// function generateIngredients(listeDeRecette) {
 
-   return ['Ail', 'Coco']
+//    return ['Ail', 'Coco']
+// }
+// const maListIng = generateIngredients(recipes)
+
+
+function generateAppliance(listeDeRecette) {
+    let app = recipes.appliance;
+
+    const applianceList = [];
+    
+        for (let i = 0; i < app.length; i++) {
+            applianceList.push(app[i].innerHTML)
+        }
 }
-const maListIng = generateIngredients(recipes)
+const maListApp = generateAppliance(recipes)
+
+
+// function generateUstensils(listeDeRecette) {
+    
+// }
+// const maListUst = generateUstensils(recipes)
