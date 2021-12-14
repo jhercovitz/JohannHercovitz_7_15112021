@@ -52,8 +52,8 @@ function displayRecipeList(recipeList) {
 
 
 
-function divBigger(){
-    const chevronIngredientDown = document.getElementById('chevronIngredient');
+// function divBigger(){
+    const chevronIngredientDown = document.getElementById('chevronIngredient')
     const chevronIngredientUp = document.getElementById('chevronIngredientUp');
     const chevronAppareilDown = document.getElementById('chevronAppareil');
     const chevronAppareilUp = document.getElementById('chevronAppareilUp');
@@ -63,6 +63,8 @@ function divBigger(){
     const appareilBig = document.getElementById('appareil');
     const ustensileBig = document.getElementById('ustensile');
     const section = document.querySelector('section');
+    
+    
 
     chevronIngredientDown.addEventListener('click', function(e) {
         // console.log(e.target)
@@ -70,7 +72,7 @@ function divBigger(){
         ingredientBig.style.height = "397px";
         ingredientBig.style.paddingBottom = "320px";
         ingredientBig.placeholder = "Recherche un ingrédient";
-        // ingredientBig.placeholder.style.opacity = "0.5";
+        // ingredientBig.placeholder.style.opacity = 0.5;
         chevronIngredientDown.style.display = "none";
         chevronIngredientUp.style.display = "block";
         chevronIngredientUp.style.marginLeft = "620px";
@@ -131,8 +133,8 @@ function divBigger(){
         chevronUstensileUp.style.display = "none"; 
         section.style.marginTop = "62px";   
     });
-}
-divBigger()
+// }
+// divBigger()
 
 
 // function generateIngredients(listeDeRecette) {
@@ -143,7 +145,7 @@ divBigger()
 
 
 function generateAppliance(listeDeRecette) {
-    let app = recipes.appliance;
+    const app = recipes.appliance;
 
     const applianceList = [];
     

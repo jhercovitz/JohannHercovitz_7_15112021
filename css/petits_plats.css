@@ -130,6 +130,11 @@ header {
     color: white;
 }
 
+
+/* #ingredient:focus::placeholder {
+    opacity: 0.5;
+} */
+
 #ingredient::-webkit-search-cancel-button {
     display: none;
 }
@@ -154,6 +159,11 @@ header {
     color: white;
 }
 
+
+/* #appareil:focus::placeholder {
+    opacity: 0.5;
+} */
+
 #appareil::-webkit-search-cancel-button {
     display: none;
 }
@@ -177,6 +187,11 @@ header {
 #ustensile::placeholder {
     color: white;
 }
+
+
+/* #ustensile:focus::placeholder {
+    opacity: 0.5;
+} */
 
 #ustensile::-webkit-search-cancel-button {
     display: none;
