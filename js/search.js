@@ -22,7 +22,6 @@ searchInput.addEventListener('input', function(e) {
 
 
 
-
 function displayRecipe(name, description, time, ingredients) {
     let recipeCard = ``;
     recipeCard =
@@ -67,7 +66,8 @@ function displayRecipeList(recipeList) {
     
 
     chevronIngredientDown.addEventListener('click', function(e) {
-        // console.log(e.target)
+		// const myParent = e.target.parentNode; 
+
         ingredientBig.style.width = "667px";
         ingredientBig.style.height = "397px";
         ingredientBig.style.paddingBottom = "320px";
@@ -137,26 +137,34 @@ function displayRecipeList(recipeList) {
 // divBigger()
 
 
-// function generateIngredients(listeDeRecette) {
+function generateIngredients(ingredients) {
 
-//    return ['Ail', 'Coco']
-// }
-// const maListIng = generateIngredients(recipes)
-
-
-function generateAppliance(listeDeRecette) {
-    const app = recipes.appliance;
-
-    const applianceList = [];
-    
-        for (let i = 0; i < app.length; i++) {
-            applianceList.push(app[i].innerHTML)
-        }
+    const ingredientList = ingredients.map(ingredient => `${ingredient.ingredient}`);
+    console.log(ingredientList)
+    return ingredientList
 }
-const maListApp = generateAppliance(recipes)
+generateIngredients(recipes)
 
+function generateAppliance(appareils) {
 
-// function generateUstensils(listeDeRecette) {
-    
+    const applianceList = appareils.map(appliance => `${appliance.appliance}`);
+    console.log(applianceList)
+    // return applianceList
+    document.getElementById('appareil').innerHTML = applianceList;
+}
+generateAppliance(recipes);
+
+// function displayApplianceList(applianceList) {
+//     document.getElementById('appareil').innerHTML = "";
+//     applianceList.forEach(function(appliance) {
+//         displayApplianceList(appliance)
+//     });
 // }
-// const maListUst = generateUstensils(recipes)
+// displayApplianceList(recipes)
+
+function generateUstensils(ustensiles) {
+    const ustensilList = ustensiles.map(ustensils => `${ustensils.ustensils}`);
+    console.log(ustensilList)
+    return ustensilList
+}
+generateUstensils(recipes)
