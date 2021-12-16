@@ -58,7 +58,6 @@ function displayRecipeList(recipeList) {
     const chevronAppareilUp = document.getElementById('chevronAppareilUp');
     const chevronUstensileDown = document.getElementById('chevronUstensile');
     const chevronUstensileUp = document.getElementById('chevronUstensileUp');
-    const ingredientBig = document.getElementById('ingredient');
     const appareilBig = document.getElementById('appareil');
     const ustensileBig = document.getElementById('ustensile');
     const section = document.querySelector('section');
@@ -66,27 +65,32 @@ function displayRecipeList(recipeList) {
     
 
     chevronIngredientDown.addEventListener('click', function(e) {
-		// const myParent = e.target.parentNode; 
+	     const myParent = e.target.parentNode;
+         const input = myParent.querySelector("input");
+         const placeholder = myParent.querySelector('::placeholder');
 
-        ingredientBig.style.width = "667px";
-        ingredientBig.style.height = "397px";
-        ingredientBig.style.paddingBottom = "320px";
-        ingredientBig.placeholder = "Recherche un ingrédient";
-        // ingredientBig.placeholder.style.opacity = 0.5;
-        chevronIngredientDown.style.display = "none";
+         input.style.width = "667px";
+         input.style.height = "397px";
+         input.style.paddingBottom = "320px";
+        input.placeholder = "Recherche un ingrédient";
+        placeholder.style.color = "red";
+        e.target.style.display = "none";
         chevronIngredientUp.style.display = "block";
         chevronIngredientUp.style.marginLeft = "620px";
         chevronAppareilDown.style.marginLeft = "630px";
         chevronUstensileDown.style.marginLeft = "630px";
         section.style.marginTop = "-260px";
     });
-    chevronIngredientUp.addEventListener('click', function() {
-        ingredientBig.style.width = "190px";
-        ingredientBig.style.height = "75px";
-        ingredientBig.style.paddingBottom = "0";
-        ingredientBig.placeholder = "Ingrédients";
+    chevronIngredientUp.addEventListener('click', function(e) {
+        const myParent = e.target.parentNode;
+         const input = myParent.querySelector("input");
+
+        input.style.width = "190px";
+        input.style.height = "75px";
+        input.style.paddingBottom = "0";
+        input.placeholder = "Ingrédients";
         chevronIngredientDown.style.display = "block";
-        chevronIngredientUp.style.display = "none";   
+        e.target.style.display = "none";   
         chevronAppareilDown.style.marginLeft = "152px";
         chevronUstensileDown.style.marginLeft = "152px";
         section.style.marginTop = "62px"; 
@@ -154,16 +158,19 @@ function generateAppliance(appareils) {
 }
 generateAppliance(recipes);
 
-// function displayApplianceList(applianceList) {
-//     document.getElementById('appareil').innerHTML = "";
-//     applianceList.forEach(function(appliance) {
-//         displayApplianceList(appliance)
-//     });
-// }
-// displayApplianceList(recipes)
 
-function generateUstensils(ustensiles) {
-    const ustensilList = ustensiles.map(ustensils => `${ustensils.ustensils}`);
+function generateUstensils(recipeList) {
+    // const ustensilList = recipeList.map(recipe => `${recipe.ustensils}`);
+    let ustensilList =[];
+    for (let i = 0; i < recipeList.length; i++) {
+
+        // const recipe = recipeList[i];
+
+       for (let j = 0; j < recipeList[i].ustensils.length; j++){
+ 
+           ustensilList.push(recipeList[i].ustensils[j])
+       } 
+    }
     console.log(ustensilList)
     return ustensilList
 }

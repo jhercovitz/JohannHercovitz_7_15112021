@@ -90,8 +90,6 @@ header {
     z-index: 1;
     right: 20px;
     top: 30px;
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
     cursor: pointer;
 }
 
