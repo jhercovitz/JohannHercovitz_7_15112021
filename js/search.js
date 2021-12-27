@@ -60,20 +60,18 @@ function displayRecipeList(recipeList) {
     const chevronUstensileUp = document.getElementById('chevronUstensileUp');
     const appareilBig = document.getElementById('appareil');
     const ustensileBig = document.getElementById('ustensile');
-    const section = document.querySelector('section');
-    
-    
+    const section = document.querySelector('section');  
 
     chevronIngredientDown.addEventListener('click', function(e) {
 	     const myParent = e.target.parentNode;
          const input = myParent.querySelector("input");
-         const placeholder = myParent.querySelector('::placeholder');
+         const placeholder = document.querySelector('::placeholder');
 
          input.style.width = "667px";
          input.style.height = "397px";
          input.style.paddingBottom = "320px";
         input.placeholder = "Recherche un ingrédient";
-        placeholder.style.color = "red";
+        // placeholder.style.color = "red";
         e.target.style.display = "none";
         chevronIngredientUp.style.display = "block";
         chevronIngredientUp.style.marginLeft = "620px";
@@ -141,37 +139,44 @@ function displayRecipeList(recipeList) {
 // divBigger()
 
 
-function generateIngredients(ingredients) {
-
-    const ingredientList = ingredients.map(ingredient => `${ingredient.ingredient}`);
-    console.log(ingredientList)
-    return ingredientList
+function generateIngredients(recipeList) {
+    let ingredientList =[];
+    for (let i = 0; i < recipeList.length; i++) {
+       for (let j = 0; j < recipeList[i].ingredients.length; j++){
+ 
+        ingredientList.push(recipeList[i].ingredients[j])
+        console.log(ingredientList);
+       } 
+    }
+    return ingredientList;
 }
 generateIngredients(recipes)
 
 function generateAppliance(appareils) {
-
     const applianceList = appareils.map(appliance => `${appliance.appliance}`);
-    console.log(applianceList)
-    // return applianceList
     document.getElementById('appareil').innerHTML = applianceList;
+    return applianceList
 }
 generateAppliance(recipes);
 
-
 function generateUstensils(recipeList) {
-    // const ustensilList = recipeList.map(recipe => `${recipe.ustensils}`);
     let ustensilList =[];
     for (let i = 0; i < recipeList.length; i++) {
-
-        // const recipe = recipeList[i];
-
        for (let j = 0; j < recipeList[i].ustensils.length; j++){
  
            ustensilList.push(recipeList[i].ustensils[j])
        } 
     }
-    console.log(ustensilList)
     return ustensilList
 }
 generateUstensils(recipes)
+
+
+function displayIngredientList(ingredientList) {
+    document.getElementById('ingredient').innerHTML = "";
+    ingredientList.forEach(function(recipes) {
+        generateIngredients(recipes)
+        return ingredientList;
+    });
+}
+displayIngredientList(recipes)
