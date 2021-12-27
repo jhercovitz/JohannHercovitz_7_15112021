@@ -138,14 +138,14 @@ function displayRecipeList(recipeList) {
 // }
 // divBigger()
 
-
+const ingredientList =[];
 function generateIngredients(recipeList) {
-    let ingredientList =[];
+    
     for (let i = 0; i < recipeList.length; i++) {
        for (let j = 0; j < recipeList[i].ingredients.length; j++){
  
         ingredientList.push(recipeList[i].ingredients[j])
-        console.log(ingredientList);
+        // console.log(ingredientList);
        } 
     }
     return ingredientList;
@@ -159,8 +159,8 @@ function generateAppliance(appareils) {
 }
 generateAppliance(recipes);
 
+const ustensilList =[];
 function generateUstensils(recipeList) {
-    let ustensilList =[];
     for (let i = 0; i < recipeList.length; i++) {
        for (let j = 0; j < recipeList[i].ustensils.length; j++){
  
@@ -173,10 +173,29 @@ generateUstensils(recipes)
 
 
 function displayIngredientList(ingredientList) {
-    document.getElementById('ingredient').innerHTML = "";
-    ingredientList.forEach(function(recipes) {
-        generateIngredients(recipes)
-        return ingredientList;
-    });
+    document.getElementById('ingredient').innerHTML = ingredientList;   
+    console.log(ingredientList);
+    // ingredientList.forEach(function(recipes) {
+    //     generateIngredients(recipes)
+    //     return ingredientList;
+    // });
 }
-displayIngredientList(recipes)
+displayIngredientList(ingredientList)
+
+// function displayApplianceList(applianceList) {
+//     document.getElementById('appareil').innerHTML = applianceList;
+//     applianceList.forEach(function(recipes) {
+//         generateAppliance(recipes)
+//         return applianceList;
+//     });
+// }
+// displayApplianceList(applianceList)
+
+// function displayUstensilList(ustensilList) {
+//     document.getElementById('ustensile').innerHTML = ustensilList;
+//     ustensilList.forEach(function(recipes) {
+//         generateUstensils(recipes)
+//         return ustensilList;
+//     });
+// }
+// displayUstensilList(ustensilList)
