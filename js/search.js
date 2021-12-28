@@ -142,10 +142,8 @@ function generateIngredients(recipeList) {
     
     for (let i = 0; i < recipeList.length; i++) {
        for (let j = 0; j < recipeList[i].ingredients.length; j++){
- 
-        ingredientList.push(recipeList[i].ingredients[j])
-        // console.log(ingredientList);
-       } 
+        ingredientList.push(recipeList[i].ingredients[j]);
+    } 
     }
     return ingredientList;
 }
@@ -175,15 +173,20 @@ function displayIngredient(ingredientList) {
     let ingredientCard = ``;
     ingredientCard =
     ingredientCard +
-        `<p class="p2">${[ingredientList].join(' ')}<br></p>`;
-document.getElementById('ingredient').innerHTML += ingredientCard;
+        `<ul>${[ingredientList]}</ul>`;
+
+        chevronIngredientDown.addEventListener('click', function(){
+        document.querySelector('section').innerHTML += ingredientCard;
+    })
+    chevronIngredientUp.addEventListener('click', function(){
+        document.querySelector('section').innerHTML = "";
+    })
 }
 
 function displayIngredientList(ingredientList) {
-    document.getElementById('ingredient').innerHTML = "";   
-    console.log(ingredientList);
-    ingredientList.forEach(function(ingredientList) {
-        displayIngredient(ingredientList)
+    document.querySelector('section').innerHTML = "";   
+    ingredientList.forEach(function(recipe) {
+        displayIngredient(recipe.ingredient)
     });
 }
 displayIngredientList(ingredientList)
