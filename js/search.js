@@ -50,7 +50,6 @@ function displayRecipeList(recipeList) {
  displayRecipeList(recipes)
 
 
-
 // function divBigger(){
     const chevronIngredientDown = document.getElementById('chevronIngredient')
     const chevronIngredientUp = document.getElementById('chevronIngredientUp');
@@ -172,15 +171,23 @@ function generateUstensils(recipeList) {
 generateUstensils(recipes)
 
 
+function displayIngredient(ingredientList) {
+    let ingredientCard = ``;
+    ingredientCard =
+    ingredientCard +
+        `<p class="p2">${[ingredientList].join(' ')}<br></p>`;
+document.getElementById('ingredient').innerHTML += ingredientCard;
+}
+
 function displayIngredientList(ingredientList) {
-    document.getElementById('ingredient').innerHTML = ingredientList;   
+    document.getElementById('ingredient').innerHTML = "";   
     console.log(ingredientList);
-    // ingredientList.forEach(function(recipes) {
-    //     generateIngredients(recipes)
-    //     return ingredientList;
-    // });
+    ingredientList.forEach(function(ingredientList) {
+        displayIngredient(ingredientList)
+    });
 }
 displayIngredientList(ingredientList)
+
 
 // function displayApplianceList(applianceList) {
 //     document.getElementById('appareil').innerHTML = applianceList;
