@@ -139,7 +139,6 @@ function displayRecipeList(recipeList) {
 
 const ingredientList =[];
 function generateIngredients(recipeList) {
-    
     for (let i = 0; i < recipeList.length; i++) {
        for (let j = 0; j < recipeList[i].ingredients.length; j++){
         ingredientList.push(recipeList[i].ingredients[j]);
@@ -148,6 +147,7 @@ function generateIngredients(recipeList) {
     return ingredientList;
 }
 generateIngredients(recipes)
+
 
 function generateAppliance(appareils) {
     const applianceList = appareils.map(appliance => `${appliance.appliance}`);
@@ -160,7 +160,6 @@ const ustensilList =[];
 function generateUstensils(recipeList) {
     for (let i = 0; i < recipeList.length; i++) {
        for (let j = 0; j < recipeList[i].ustensils.length; j++){
- 
            ustensilList.push(recipeList[i].ustensils[j])
        } 
     }
@@ -169,31 +168,73 @@ function generateUstensils(recipeList) {
 generateUstensils(recipes)
 
 
+const ingredientContainer = document.getElementById('ingredient_container');
 function displayIngredient(ingredientList) {
     let ingredientCard = ``;
     ingredientCard =
     ingredientCard +
         `<ul>${[ingredientList]}</ul>`;
 
-    const ingredientDiv = document.getElementById('ingredient_div');
     chevronIngredientDown.addEventListener('click', function(){
-        document.getElementById('ingredient_container').innerHTML += ingredientCard;
-        ingredientDiv.style.width = '667px'
-        ingredientDiv.style.height = '397px';
+        ingredientContainer.innerHTML += ingredientCard;
     })
     chevronIngredientUp.addEventListener('click', function(){
-        document.querySelector('section').innerHTML = "";
-        document.getElementById('ingredient_container').style.display = 'none';
-        ingredientDiv.style.width = '190px'
-        ingredientDiv.style.height = '75px';
-    
+        ingredientContainer.innerHTML = "";
     })
 }
 
 function displayIngredientList(ingredientList) {
-    document.getElementById('ingredient_container').innerHTML = "";   
+    ingredientContainer.innerHTML = "";   
     ingredientList.forEach(function(recipe) {
         displayIngredient(recipe.ingredient)
     });
 }
 displayIngredientList(ingredientList)
+
+
+const appareilContainer = document.getElementById('appareil_container');
+function displayappliance(applianceList) {
+    let applianceCard = ``;
+    applianceCard =
+    applianceCard +
+        `<ul>${[applianceList]}</ul>`;
+
+        chevronAppareilDown.addEventListener('click', function(){
+        appareilContainer.innerHTML += applianceCard;
+    })
+    chevronAppareilUp.addEventListener('click', function(){
+        appareilContainer.innerHTML = "";
+    })
+}
+
+function displayapplianceList(applianceList) {
+    appareilContainer.innerHTML = "";   
+    applianceList.forEach(function(recipe) {
+        displayappliance(recipe.appliance)
+    });
+}
+displayapplianceList(recipes)
+
+
+const ustensileContainer = document.getElementById('ustensile_container');
+function displayUstensil(ustensilList) {
+    let ustensilCard = ``;
+    ustensilCard =
+    ustensilCard +
+        `<ul>${[ustensilList]}</ul>`;
+
+    chevronUstensileDown.addEventListener('click', function(){
+        ustensileContainer.innerHTML += ustensilCard;
+    })
+    chevronUstensileUp.addEventListener('click', function(){
+        ustensileContainer.innerHTML = "";
+    })
+}
+
+function displayUstensilList(ustensilList) {
+    ustensileContainer.innerHTML = "";   
+    ustensilList.forEach(function(recipe) {
+        displayUstensil(recipe.ustensils)
+    });
+}
+displayUstensilList(recipes)
