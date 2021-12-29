@@ -175,37 +175,25 @@ function displayIngredient(ingredientList) {
     ingredientCard +
         `<ul>${[ingredientList]}</ul>`;
 
-        chevronIngredientDown.addEventListener('click', function(){
-        document.querySelector('section').innerHTML += ingredientCard;
+    const ingredientDiv = document.getElementById('ingredient_div');
+    chevronIngredientDown.addEventListener('click', function(){
+        document.getElementById('ingredient_container').innerHTML += ingredientCard;
+        ingredientDiv.style.width = '667px'
+        ingredientDiv.style.height = '397px';
     })
     chevronIngredientUp.addEventListener('click', function(){
         document.querySelector('section').innerHTML = "";
+        document.getElementById('ingredient_container').style.display = 'none';
+        ingredientDiv.style.width = '190px'
+        ingredientDiv.style.height = '75px';
+    
     })
 }
 
 function displayIngredientList(ingredientList) {
-    document.querySelector('section').innerHTML = "";   
+    document.getElementById('ingredient_container').innerHTML = "";   
     ingredientList.forEach(function(recipe) {
         displayIngredient(recipe.ingredient)
     });
 }
 displayIngredientList(ingredientList)
-
-
-// function displayApplianceList(applianceList) {
-//     document.getElementById('appareil').innerHTML = applianceList;
-//     applianceList.forEach(function(recipes) {
-//         generateAppliance(recipes)
-//         return applianceList;
-//     });
-// }
-// displayApplianceList(applianceList)
-
-// function displayUstensilList(ustensilList) {
-//     document.getElementById('ustensile').innerHTML = ustensilList;
-//     ustensilList.forEach(function(recipes) {
-//         generateUstensils(recipes)
-//         return ustensilList;
-//     });
-// }
-// displayUstensilList(ustensilList)

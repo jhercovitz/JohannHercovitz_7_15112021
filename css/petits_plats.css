@@ -287,6 +287,23 @@ ul {
     margin-bottom: -12px;
     font-size: 12px;
     /* color: white; */
+    display: block;
+}
+
+#ingredient_div {
+    width: 190px;
+    height: 75px;
+}
+
+#ingredient_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 286px;
+    overflow: hidden;
+    margin-top: -306px;
+    line-height: 21.6px;
+    color: white;
 }
 
 @media only screen and (max-width: 1024px) {
