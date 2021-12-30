@@ -186,21 +186,9 @@ header {
     color: white;
 }
 
-
-/* #ustensile:focus::placeholder {
-    opacity: 0.5;
-} */
-
 #ustensile::-webkit-search-cancel-button {
     display: none;
 }
-
-
-/* .eco:hover {
-    background-color: #0065FC;
-    border: 2px solid transparent;
-    color: #F2F2F2;
-}*/
 
 section {
     display: flex;
@@ -286,7 +274,7 @@ ul {
     width: 30%;
     margin-bottom: -12px;
     font-size: 18px;
-    /* color: white; */
+    color: white;
     display: block;
 }
 
@@ -296,9 +284,8 @@ ul {
     flex-wrap: wrap;
     height: 286px;
     overflow: hidden;
-    margin-top: -306px;
+    margin-top: -320px;
     line-height: 21.6px;
-    color: white;
     margin-left: -25px;
 }
 
@@ -308,9 +295,8 @@ ul {
     flex-wrap: wrap;
     height: 286px;
     overflow: hidden;
-    margin-top: -306px;
+    margin-top: -320px;
     line-height: 21.6px;
-    color: white;
     margin-left: -25px;
 }
 
@@ -320,9 +306,8 @@ ul {
     flex-wrap: wrap;
     height: 286px;
     overflow: hidden;
-    margin-top: -306px;
+    margin-top: -320px;
     line-height: 21.6px;
-    color: white;
     margin-left: -25px;
 }
 

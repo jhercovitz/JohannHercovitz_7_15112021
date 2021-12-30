@@ -1,6 +1,8 @@
 import { recipes } from "./recipes.js"
 
 
+const searchInput = document.getElementById('recherche')
+const ingredientInput = document.getElementById('ingredient')
 const chevronIngredientDown = document.getElementById('chevronIngredient')
 const chevronIngredientUp = document.getElementById('chevronIngredientUp');
 const chevronAppareilDown = document.getElementById('chevronAppareil');
@@ -17,13 +19,9 @@ const ingredientContainer = document.getElementById('ingredient_container');
 const appareilContainer = document.getElementById('appareil_container');
 const ustensileContainer = document.getElementById('ustensile_container');
 
-const searchInput = document.getElementById('recherche')
 
 searchInput.addEventListener('input', function(e) {
-
     const userInput = e.target.value.toLowerCase();
-
-
     const filteredRecipe = recipes.filter(function(recipe) {
         if (userInput.length < 3) {
             return recipes
@@ -32,9 +30,7 @@ searchInput.addEventListener('input', function(e) {
         }
 
     });
-
     displayRecipeList(filteredRecipe);
-
 })
 
 
@@ -71,8 +67,7 @@ function displayRecipeList(recipeList) {
     chevronIngredientDown.addEventListener('click', function(e) {
 	     const myParent = e.target.parentNode;
          const input = myParent.querySelector("input");
-         const placeholder = document.querySelector('::placeholder');
-
+        //  const placeholder = document.querySelector('::placeholder');
          input.style.width = "667px";
          input.style.height = "397px";
          input.style.paddingBottom = "320px";
@@ -83,7 +78,7 @@ function displayRecipeList(recipeList) {
         chevronIngredientUp.style.marginLeft = "620px";
         chevronAppareilDown.style.marginLeft = "630px";
         chevronUstensileDown.style.marginLeft = "630px";
-        section.style.marginTop = "-260px";
+        section.style.marginTop = "-244px";
     });
     chevronIngredientUp.addEventListener('click', function(e) {
         const myParent = e.target.parentNode;
@@ -109,7 +104,7 @@ function displayRecipeList(recipeList) {
         chevronAppareilUp.style.display = "block";
         chevronAppareilUp.style.marginLeft = "620px";
         chevronUstensileDown.style.marginLeft = "630px";
-        section.style.marginTop = "-260px";
+        section.style.marginTop = "-244px";
     });
     chevronAppareilUp.addEventListener('click', function() {
         appareilBig.style.width = "190px";
@@ -130,7 +125,7 @@ function displayRecipeList(recipeList) {
         chevronUstensileDown.style.display = "none";
         chevronUstensileUp.style.display = "block";
         chevronUstensileUp.style.marginLeft = "620px";
-        section.style.marginTop = "-260px";  
+        section.style.marginTop = "-244px";  
     });
     chevronUstensileUp.addEventListener('click', function() {
         ustensileBig.style.width = "190px";
@@ -206,8 +201,7 @@ function displayappliance(applianceList) {
         appareilContainer.innerHTML += applianceCard;
     })
     chevronAppareilUp.addEventListener('click', function(){
-        appareilContainer.innerHTML = "";
-    })
+        appareilContainer.innerHTML = "";    })
 }
 
 function displayapplianceList(_recipes) {
@@ -229,8 +223,7 @@ function displayUstensil(ustensilList) {
         ustensileContainer.innerHTML += ustensilCard;
     })
     chevronUstensileUp.addEventListener('click', function(){
-        ustensileContainer.innerHTML = "";
-    })
+        ustensileContainer.innerHTML = "";    })
 }
 
 function displayUstensilList(_recipes) {
@@ -240,3 +233,17 @@ function displayUstensilList(_recipes) {
     });
 }
 displayUstensilList(recipes)
+
+
+ingredientInput.addEventListener('input', function(e) {
+    const userInput = e.target.value.toLowerCase();
+    const filteredIngredient = ingredientList.filter(function(ingredient) {
+        if (userInput.length < 3) {
+            return ingredientList
+        } else {
+            return ingredient.toLowerCase().includes(userInput) 
+        }
+
+    });
+    displayIngredientList(filteredIngredient);
+})
