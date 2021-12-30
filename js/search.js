@@ -1,5 +1,22 @@
 import { recipes } from "./recipes.js"
 
+
+const chevronIngredientDown = document.getElementById('chevronIngredient')
+const chevronIngredientUp = document.getElementById('chevronIngredientUp');
+const chevronAppareilDown = document.getElementById('chevronAppareil');
+const chevronAppareilUp = document.getElementById('chevronAppareilUp');
+const chevronUstensileDown = document.getElementById('chevronUstensile');
+const chevronUstensileUp = document.getElementById('chevronUstensileUp');
+const appareilBig = document.getElementById('appareil');
+const ustensileBig = document.getElementById('ustensile');
+const section = document.querySelector('section');
+const ingredientList = [];
+let applianceList = [];
+const ustensilList = [];
+const ingredientContainer = document.getElementById('ingredient_container');
+const appareilContainer = document.getElementById('appareil_container');
+const ustensileContainer = document.getElementById('ustensile_container');
+
 const searchInput = document.getElementById('recherche')
 
 searchInput.addEventListener('input', function(e) {
@@ -51,16 +68,6 @@ function displayRecipeList(recipeList) {
 
 
 // function divBigger(){
-    const chevronIngredientDown = document.getElementById('chevronIngredient')
-    const chevronIngredientUp = document.getElementById('chevronIngredientUp');
-    const chevronAppareilDown = document.getElementById('chevronAppareil');
-    const chevronAppareilUp = document.getElementById('chevronAppareilUp');
-    const chevronUstensileDown = document.getElementById('chevronUstensile');
-    const chevronUstensileUp = document.getElementById('chevronUstensileUp');
-    const appareilBig = document.getElementById('appareil');
-    const ustensileBig = document.getElementById('ustensile');
-    const section = document.querySelector('section');  
-
     chevronIngredientDown.addEventListener('click', function(e) {
 	     const myParent = e.target.parentNode;
          const input = myParent.querySelector("input");
@@ -137,26 +144,24 @@ function displayRecipeList(recipeList) {
 // }
 // divBigger()
 
-const ingredientList =[];
+
 function generateIngredients(recipeList) {
     for (let i = 0; i < recipeList.length; i++) {
        for (let j = 0; j < recipeList[i].ingredients.length; j++){
-        ingredientList.push(recipeList[i].ingredients[j]);
+        ingredientList.push(recipeList[i].ingredients[j].ingredient);
     } 
     }
     return ingredientList;
 }
 generateIngredients(recipes)
 
-
 function generateAppliance(appareils) {
-    const applianceList = appareils.map(appliance => `${appliance.appliance}`);
+    applianceList = appareils.map(appliance => `${appliance.appliance}`);
     document.getElementById('appareil').innerHTML = applianceList;
     return applianceList
 }
 generateAppliance(recipes);
 
-const ustensilList =[];
 function generateUstensils(recipeList) {
     for (let i = 0; i < recipeList.length; i++) {
        for (let j = 0; j < recipeList[i].ustensils.length; j++){
@@ -168,7 +173,6 @@ function generateUstensils(recipeList) {
 generateUstensils(recipes)
 
 
-const ingredientContainer = document.getElementById('ingredient_container');
 function displayIngredient(ingredientList) {
     let ingredientCard = ``;
     ingredientCard =
@@ -183,16 +187,15 @@ function displayIngredient(ingredientList) {
     })
 }
 
-function displayIngredientList(ingredientList) {
+function displayIngredientList(_recipes) {
     ingredientContainer.innerHTML = "";   
-    ingredientList.forEach(function(recipe) {
-        displayIngredient(recipe.ingredient)
+    ingredientList.forEach(function(ingredient) {
+        displayIngredient(ingredient)
     });
 }
-displayIngredientList(ingredientList)
+displayIngredientList(recipes)
 
 
-const appareilContainer = document.getElementById('appareil_container');
 function displayappliance(applianceList) {
     let applianceCard = ``;
     applianceCard =
@@ -207,16 +210,15 @@ function displayappliance(applianceList) {
     })
 }
 
-function displayapplianceList(applianceList) {
+function displayapplianceList(_recipes) {
     appareilContainer.innerHTML = "";   
-    applianceList.forEach(function(recipe) {
-        displayappliance(recipe.appliance)
+    applianceList.forEach(function(appliance) {
+        displayappliance(appliance)
     });
 }
 displayapplianceList(recipes)
 
 
-const ustensileContainer = document.getElementById('ustensile_container');
 function displayUstensil(ustensilList) {
     let ustensilCard = ``;
     ustensilCard =
@@ -231,10 +233,10 @@ function displayUstensil(ustensilList) {
     })
 }
 
-function displayUstensilList(ustensilList) {
+function displayUstensilList(_recipes) {
     ustensileContainer.innerHTML = "";   
-    ustensilList.forEach(function(recipe) {
-        displayUstensil(recipe.ustensils)
+    ustensilList.forEach(function(ustensils) {
+        displayUstensil(ustensils)
     });
 }
 displayUstensilList(recipes)
