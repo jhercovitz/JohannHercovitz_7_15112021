@@ -1,14 +1,14 @@
 import { recipes } from "./recipes.js"
 
 
-const searchInput = document.getElementById('recherche')
-const ingredientInput = document.getElementById('ingredient')
+const searchInput = document.getElementById('recherche');
 const chevronIngredientDown = document.getElementById('chevronIngredient')
 const chevronIngredientUp = document.getElementById('chevronIngredientUp');
 const chevronAppareilDown = document.getElementById('chevronAppareil');
 const chevronAppareilUp = document.getElementById('chevronAppareilUp');
 const chevronUstensileDown = document.getElementById('chevronUstensile');
 const chevronUstensileUp = document.getElementById('chevronUstensileUp');
+const ingredientBig = document.getElementById('ingredient');
 const appareilBig = document.getElementById('appareil');
 const ustensileBig = document.getElementById('ustensile');
 const section = document.querySelector('section');
@@ -18,6 +18,7 @@ const ustensilList = [];
 const ingredientContainer = document.getElementById('ingredient_container');
 const appareilContainer = document.getElementById('appareil_container');
 const ustensileContainer = document.getElementById('ustensile_container');
+const ingredientInput = document.getElementById('ingredient');
 
 
 searchInput.addEventListener('input', function(e) {
@@ -32,7 +33,6 @@ searchInput.addEventListener('input', function(e) {
     });
     displayRecipeList(filteredRecipe);
 })
-
 
 
 function displayRecipe(name, description, time, ingredients) {
@@ -239,11 +239,16 @@ ingredientInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
     const filteredIngredient = ingredientList.filter(function(ingredient) {
         if (userInput.length < 3) {
-            return ingredientList
+            // ingredientBig.style.height = '75px';
+            // ingredientBig.style.paddingBottom = "0";
+            console.log(ingredientList);
+            return ingredientList;
         } else {
-            return ingredient.toLowerCase().includes(userInput) 
+            // ingredientBig.style.height = '100px';
+            // ingredientBig.style.paddingBottom = "28px"
+            return ingredient.toLowerCase().includes(userInput);
         }
-
     });
     displayIngredientList(filteredIngredient);
+    console.log(filteredIngredient);
 })
