@@ -12,13 +12,14 @@ const ingredientBig = document.getElementById('ingredient');
 const appareilBig = document.getElementById('appareil');
 const ustensileBig = document.getElementById('ustensile');
 const section = document.querySelector('section');
-const ingredientList = [];
+let ingredientList = [];
 let applianceList = [];
-const ustensilList = [];
+let ustensilList = [];
 const ingredientContainer = document.getElementById('ingredient_container');
 const appareilContainer = document.getElementById('appareil_container');
 const ustensileContainer = document.getElementById('ustensile_container');
 const ingredientInput = document.getElementById('ingredient');
+let filteredIngredient = [];
 
 
 searchInput.addEventListener('input', function(e) {
@@ -237,7 +238,7 @@ displayUstensilList(recipes)
 
 ingredientInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
-    const filteredIngredient = ingredientList.filter(function(ingredient) {
+    filteredIngredient = ingredientList.filter(function(ingredient) {
         if (userInput.length < 3) {
             // ingredientBig.style.height = '75px';
             // ingredientBig.style.paddingBottom = "0";
@@ -252,3 +253,30 @@ ingredientInput.addEventListener('input', function(e) {
     displayIngredientList(filteredIngredient);
     console.log(filteredIngredient);
 })
+
+
+
+// const filterContainer = document.getElementsByClassName('filtres');
+
+// function displayFilterTag(_filter){
+//     let filterTag = ``;
+//     filterTag =
+//     filterTag +
+//     `<div class='filterTag>${filteredIngredient}<i class="fas fa-times-circle cross"></i></div>`;
+
+//     document.querySelector('ul').addEventListener('click', function(){
+//         filterContainer.innerHTML += filterTag;
+//         console.log(filterContainer)
+//     })
+//     document.getElementsByClassName('cross').addEventListener('click', function(){
+//         filterContainer.innerHTML = "";    
+//     })
+// }
+
+// function displayFilterList(_recipes) {
+//     filterContainer.innerHTML = "";   
+//     filteredIngredient.forEach(function(ingredient) {
+//         displayFilterTag(ingredient)
+//     });
+// }
+// displayFilterList(recipes)
