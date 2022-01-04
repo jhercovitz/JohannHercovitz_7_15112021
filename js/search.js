@@ -236,46 +236,69 @@ function displayUstensilList(_recipes) {
 displayUstensilList(filteredRecipe)
 
 
-ingredientInput.addEventListener('input', function(e) {
-    const userInput = e.target.value.toLowerCase();
-    filteredIngredient = ingredientList.filter(function(ingredient) {
-    //     if (userInput.length < 3) {
-    // //         // ingredientBig.style.height = '75px';
-    // //         // ingredientBig.style.paddingBottom = "0";
-    //         console.log(ingredientList);
-    //         return ingredientList;
-    //     } else {
-            // ingredientBig.style.height = '100px';
-            // ingredientBig.style.paddingBottom = "28px"
-            return ingredient.toLowerCase().includes(userInput);
-        // }
-    });
-    // displayIngredientList(filteredIngredient);
-    console.log(filteredIngredient);
-})
+// ingredientInput.addEventListener('input', function(e) {
+//     const userInput = e.target.value.toLowerCase();
+//     filteredIngredient = ingredientList.filter(function(ingredient) {
+//     //     if (userInput.length < 3) {
+//     // //         // ingredientBig.style.height = '75px';
+//     // //         // ingredientBig.style.paddingBottom = "0";
+//     //         console.log(ingredientList);
+//     //         return ingredientList;
+//     //     } else {
+//             // ingredientBig.style.height = '100px';
+//             // ingredientBig.style.paddingBottom = "28px"
+//             return ingredient.toLowerCase().includes(userInput);
+//         // }
+//     });
+//     // displayIngredientList(filteredIngredient);
+//     console.log(filteredIngredient);
+// })
 
 
 // const filterContainer = document.getElementsByClassName('filtres');
+const filterContainer = document.querySelector('section');
 
-// function displayFilterTag(_filter){
-//     let filterTag = ``;
-//     filterTag =
-//     filterTag +
-//     `<div class='filterTag>${filteredIngredient}<i class="fas fa-times-circle cross"></i></div>`;
+function displayFilterTag(_recipes){
+    let filterTag = ``;
+    filterTag =
+    filterTag +
+    `<div class="filterTag">${ingredientList}<i class="fas fa-times-circle" id="cross"></i></div>`;
+    console.log(filterTag)
 
-//     document.querySelector('ul').addEventListener('click', function(){
-//         filterContainer.innerHTML += filterTag;
-//         console.log(filterContainer)
+    document.getElementById('ingredient').addEventListener('input', function(){
+        filterContainer.innerHTML += filterTag;
+        console.log(filterContainer)
+    })
+    document.getElementById('cross').addEventListener('click', function(){
+        filterContainer.innerHTML = "";
+    })
+}
+
+function displayFilterList(_recipes) {
+    filterContainer.innerHTML = "";   
+    ingredientList.forEach(function(ingredient) {
+        displayFilterTag(ingredient)
+    });
+}
+displayFilterList(filterContainer)
+
+// function displayUstensil(ustensilList) {
+//     let ustensilCard = ``;
+//     ustensilCard =
+//     ustensilCard +
+//         `<ul>${[ustensilList]}</ul>`;
+
+//     chevronUstensileDown.addEventListener('click', function(){
+//         ustensileContainer.innerHTML += ustensilCard;
 //     })
-//     document.getElementsByClassName('cross').addEventListener('click', function(){
-//         filterContainer.innerHTML = "";    
-//     })
+//     chevronUstensileUp.addEventListener('click', function(){
+//         ustensileContainer.innerHTML = "";    })
 // }
 
-// function displayFilterList(_recipes) {
-//     filterContainer.innerHTML = "";   
-//     filteredIngredient.forEach(function(ingredient) {
-//         displayFilterTag(ingredient)
+// function displayUstensilList(_recipes) {
+//     ustensileContainer.innerHTML = "";   
+//     ustensilList.forEach(function(ustensils) {
+//         displayUstensil(ustensils)
 //     });
 // }
-// displayFilterList(filteredIngredient)
+// displayUstensilList(filteredRecipe)
