@@ -311,6 +311,77 @@ ul {
     margin-left: -25px;
 }
 
+.filterTagDiv {
+    display: flex;
+}
+
+#filterTagContainerIngredient {
+    width: 107px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #3282F7;
+    position: absolute;
+    margin-left: 5%;
+    align-items: center;
+    display: none;
+}
+
+#filterTagContainerAppareil {
+    width: 107px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #68D9A4;
+    position: absolute;
+    margin-left: 285.5px;
+    align-items: center;
+    display: none;
+}
+
+#filterTagContainerUstensile {
+    width: 107px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #ED6454;
+    position: absolute;
+    margin-left: 496px;
+    display: none;
+}
+
+.filterTag {
+    color: white;
+    font-size: 14px;
+}
+
+#cross1 {
+    display: none;
+    cursor: pointer;
+    margin-left: 150px;
+    margin-top: 10px;
+    color: white;
+    position: absolute;
+    z-index: 1;
+}
+
+#cross2 {
+    display: none;
+    cursor: pointer;
+    margin-left: 360px;
+    margin-top: 10px;
+    color: white;
+    position: absolute;
+    z-index: 1;
+}
+
+#cross3 {
+    display: none;
+    cursor: pointer;
+    margin-left: 570px;
+    margin-top: 10px;
+    color: white;
+    position: absolute;
+    z-index: 1;
+}
+
 @media only screen and (max-width: 1024px) {
     #logo {
         width: 30%;

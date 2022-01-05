@@ -9,7 +9,6 @@ const chevronAppareilDown = document.getElementById('chevronAppareil');
 const chevronAppareilUp = document.getElementById('chevronAppareilUp');
 const chevronUstensileDown = document.getElementById('chevronUstensile');
 const chevronUstensileUp = document.getElementById('chevronUstensileUp');
-const ingredientBig = document.getElementById('ingredient');
 const appareilBig = document.getElementById('appareil');
 const ustensileBig = document.getElementById('ustensile');
 const section = document.querySelector('section');
@@ -21,6 +20,13 @@ const appareilContainer = document.getElementById('appareil_container');
 const ustensileContainer = document.getElementById('ustensile_container');
 const ingredientInput = document.getElementById('ingredient');
 let filteredIngredient = [];
+const cross1 = document.getElementById('cross1');
+const filterTagContainerIngredient = document.getElementById('filterTagContainerIngredient');
+const cross2 = document.getElementById('cross2');
+const filterTagContainerAppareil = document.getElementById('filterTagContainerAppareil');
+const cross3 = document.getElementById('cross3');
+const filterTagContainerUstensile = document.getElementById('filterTagContainerUstensile');
+const filtres = document.getElementById('filtres');
 
 
 searchInput.addEventListener('input', function(e) {
@@ -255,50 +261,100 @@ displayUstensilList(filteredRecipe)
 // })
 
 
-// const filterContainer = document.getElementsByClassName('filtres');
-const filterContainer = document.querySelector('section');
 
-function displayFilterTag(_recipes){
+function displayFilterTagIngredient(ingredientList){
     let filterTag = ``;
     filterTag =
     filterTag +
-    `<div class="filterTag">${ingredientList}<i class="fas fa-times-circle" id="cross"></i></div>`;
-    console.log(filterTag)
+    `<div class="filterTag">${ingredientList}</div>`;
 
-    document.getElementById('ingredient').addEventListener('input', function(){
-        filterContainer.innerHTML += filterTag;
-        console.log(filterContainer)
-    })
-    document.getElementById('cross').addEventListener('click', function(){
-        filterContainer.innerHTML = "";
+    ingredientInput.addEventListener('input', function() {  // filterTag s'ouvre dès la premiere lettre / trouver une condition
+        filterTagContainerIngredient.innerHTML += filterTag;
+        filterTagContainerIngredient.style.display = 'block';
+            filtres.style.marginTop = "60px";
+            cross1.style.display = "block";
+        })
+    cross1.addEventListener('click', function() {
+        filterTagContainerIngredient.innerHTML = "";
+        filterTagContainerIngredient.style.display = 'none';
+        cross1.style.display = "none";
+
+        if (filterTagContainerAppareil.style.display == "none" && filterTagContainerUstensile.style.display == "none"){
+            filtres.style.marginTop = "0";
+        }
     })
 }
 
-function displayFilterList(_recipes) {
-    filterContainer.innerHTML = "";   
+function displayFilterIngredientList(_recipes) {
+    filterTagContainerIngredient.innerHTML = "";   
     ingredientList.forEach(function(ingredient) {
-        displayFilterTag(ingredient)
+        displayFilterTagIngredient(ingredient)
     });
 }
-displayFilterList(filterContainer)
+displayFilterIngredientList(ingredientList)
 
-// function displayUstensil(ustensilList) {
-//     let ustensilCard = ``;
-//     ustensilCard =
-//     ustensilCard +
-//         `<ul>${[ustensilList]}</ul>`;
 
-//     chevronUstensileDown.addEventListener('click', function(){
-//         ustensileContainer.innerHTML += ustensilCard;
-//     })
-//     chevronUstensileUp.addEventListener('click', function(){
-//         ustensileContainer.innerHTML = "";    })
-// }
+function displayFilterTagAppareil(applianceList){
+    let filterTag = ``;
+    filterTag =
+    filterTag +
+    `<div class="filterTag">${applianceList}</div>`;
+    console.log(filterTag)
 
-// function displayUstensilList(_recipes) {
-//     ustensileContainer.innerHTML = "";   
-//     ustensilList.forEach(function(ustensils) {
-//         displayUstensil(ustensils)
-//     });
-// }
-// displayUstensilList(filteredRecipe)
+    appareilBig.addEventListener('input', function() {
+        filterTagContainerAppareil.innerHTML += filterTag;
+        filterTagContainerAppareil.style.display = 'block';
+            filtres.style.marginTop = "60px";
+            cross2.style.display = "block";
+        })
+    cross2.addEventListener('click', function() {
+        filterTagContainerAppareil.innerHTML = "";
+        filterTagContainerAppareil.style.display = 'none';
+        cross2.style.display = "none";
+
+        if (filterTagContainerIngredient.style.display == "none" && filterTagContainerUstensile.style.display == "none"){
+            filtres.style.marginTop = "0";
+        }
+    })
+}
+
+function displayFilterApplianceList(_recipes) {
+    filterTagContainerAppareil.innerHTML = "";   
+    applianceList.forEach(function(appliance) {
+        displayFilterTagAppareil(appliance)
+    });
+}
+displayFilterApplianceList(applianceList)
+
+
+function displayFilterTagUstensile(ustensilList){
+    let filterTag = ``;
+    filterTag =
+    filterTag +
+    `<div class="filterTag">${ustensilList}</div>`;
+    console.log(filterTag)
+
+    ustensileBig.addEventListener('input', function() {
+        filterTagContainerUstensile.innerHTML += filterTag;
+        filterTagContainerUstensile.style.display = 'block';
+            filtres.style.marginTop = "60px";
+            cross3.style.display = "block";
+        })
+    cross3.addEventListener('click', function() {
+        filterTagContainerUstensile.innerHTML = "";
+        filterTagContainerUstensile.style.display = 'none';
+        cross3.style.display = "none";
+        
+        if (filterTagContainerIngredient.style.display == "none" && filterTagContainerAppareil.style.display == "none"){
+            filtres.style.marginTop = "0";
+        }
+    })
+}
+
+function displayFilterUstensilList(_recipes) {
+    filterTagContainerUstensile.innerHTML = "";   
+    ustensilList.forEach(function(ustensils) {
+        displayFilterTagUstensile(ustensils)
+    });
+}
+displayFilterUstensilList(ustensilList)

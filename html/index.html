@@ -19,7 +19,15 @@
         <input id="recherche" type="search" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
         <input id="submit" type="submit">
     </header>
-    <div class="filtres">
+    <div class="filterTagDiv">
+        <div id="filterTagContainerIngredient"></div>
+        <i class="far fa-times-circle" id="cross1"></i>
+        <div id="filterTagContainerAppareil"></div>
+        <i class="far fa-times-circle" id="cross2"></i>
+        <div id="filterTagContainerUstensile"></div>
+        <i class="far fa-times-circle" id="cross3"></i>
+    </div>
+    <div class="filtres" id="filtres">
         <div class="select_filtre">
             <input id="ingredient" type="search" placeholder="Ingredients">
             <p id="ingredient_container"></p>
