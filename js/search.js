@@ -175,6 +175,7 @@ function generateUstensils(recipeList) {
 }
 generateUstensils(recipes)
 
+
 function displayIngredient(ingredient) {
     chevronIngredientDown.addEventListener('click', function(){
     ingredientContainer.innerHTML += `<li>${ingredient}</li>`;
@@ -190,7 +191,7 @@ function displayIngredient(ingredient) {
 function displayIngredientList(listIng) {
     ingredientContainer.innerHTML = "";   
         listIng.forEach(function(ingredient) {
-            ingredientContainer.innerHTML += displayIngredient(ingredient)
+            ingredientContainer.innerHTML == displayIngredient(ingredient) // avec Pierre on avait mit += mais faisait apparaitre un undifined
     });
 }
 displayIngredientList(ingredientList)
@@ -211,7 +212,7 @@ function displayAppliance(appliance) {
 function displayapplianceList(listApp) {
     appareilContainer.innerHTML = "";   
     listApp.forEach(function(appliance) {
-        appareilContainer.innerHTML += displayAppliance(appliance)
+        appareilContainer.innerHTML == displayAppliance(appliance)
     });
 }
 displayapplianceList(applianceList)
@@ -232,7 +233,7 @@ function displayUstensil(ustensil) {
 function displayUstensilList(listUst) {
     ustensileContainer.innerHTML = "";   
     listUst.forEach(function(ustensil) {
-        ustensileContainer.innerHTML += displayUstensil(ustensil)
+        ustensileContainer.innerHTML == displayUstensil(ustensil)
     });
 }
 displayUstensilList(ustensilList)
@@ -241,19 +242,19 @@ displayUstensilList(ustensilList)
 ingredientInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
     filteredIngredient = ingredientList.filter(function(ingredient) {
-    //     if (userInput.length < 3) {
+        // if (userInput.length < 3) {
     // //         // ingredientBig.style.height = '75px';
     // //         // ingredientBig.style.paddingBottom = "0";
-    //         console.log(ingredientList);
-    //         return ingredientList;
-    //     } else {
+        //     console.log(ingredientList);
+        //     return ingredientList;
+        // // } else {
             // ingredientBig.style.height = '100px';
             // ingredientBig.style.paddingBottom = "28px"
             return ingredient.toLowerCase().includes(userInput);
         // }
     });
-    displayIngredientList(filteredIngredient);
-    // console.log(filteredIngredient);
+    displayIngredient(filteredIngredient);
+    console.log(filteredIngredient);
 })
 
 
