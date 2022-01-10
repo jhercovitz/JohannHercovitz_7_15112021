@@ -243,17 +243,13 @@ ingredientInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
     filteredIngredient = ingredientList.filter(function(ingredient) {
         // if (userInput.length < 3) {
-    // //         // ingredientBig.style.height = '75px';
-    // //         // ingredientBig.style.paddingBottom = "0";
         //     console.log(ingredientList);
         //     return ingredientList;
-        // // } else {
-            // ingredientBig.style.height = '100px';
-            // ingredientBig.style.paddingBottom = "28px"
+        // } else {
             return ingredient.toLowerCase().includes(userInput);
         // }
     });
-    displayIngredient(filteredIngredient);
+     displayIngredientList(filteredIngredient);
     console.log(filteredIngredient);
 })
 
