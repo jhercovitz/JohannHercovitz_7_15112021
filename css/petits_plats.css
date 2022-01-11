@@ -272,7 +272,8 @@ section {
 }
 
 li {
-    width: 30%;
+    width: 24%;
+    margin-right: 7%;
     list-style: none;
     cursor: pointer;
 }
