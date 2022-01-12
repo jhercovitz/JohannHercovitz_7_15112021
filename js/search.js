@@ -179,7 +179,7 @@ generateUstensils(recipes)
 
 
 function displayIngredient(ingredient) {
-    ingredientContainer.innerHTML += `<li class="liste">${ingredient}</li>`;
+    ingredientContainer.innerHTML += `<li>${ingredient}</li>`;
 
     chevronIngredientDown.addEventListener('click', function(){
     ingredientContainer.style.display = "flex";
@@ -193,14 +193,14 @@ function displayIngredientList(listIng) {
     ingredientContainer.innerHTML = "";   
         listIng.forEach(function(ingredient) {
             displayIngredient(ingredient)
-            // ingredientContainer.innerHTML += displayIngredient(ingredientList) // retourne undifined?
+            // ingredientContainer.innerHTML += displayIngredient(ingredient) // retourne undifined?
     });
 }
 displayIngredientList(ingredientList)
 
 
 function displayAppliance(appliance) {
-    appareilContainer.innerHTML += `<li id="liste">${appliance}</li>`;
+    appareilContainer.innerHTML += `<li>${appliance}</li>`;
 
     chevronAppareilDown.addEventListener('click', function(){
     appareilContainer.style.display = "flex";
@@ -221,7 +221,7 @@ displayApplianceList(applianceList)
 
 
 function displayUstensil(ustensil) {  
-    ustensileContainer.innerHTML += `<li class="liste">${ustensil}</li>`;
+    ustensileContainer.innerHTML += `<li>${ustensil}</li>`;
 
     chevronUstensileDown.addEventListener('click', function(){
     ustensileContainer.style.display = "flex";
@@ -243,7 +243,7 @@ displayUstensilList(ustensilList)
 
 ingredientInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
-    filteredIngredient = ingredientList.filter(function(ingredient) {
+    filteredIngredient = ingredientList.filter(function(ingredient) {  // probleme de lenteur à ce niveau même avec listIng en param
         if (userInput.length < 3) {
             console.log(ingredientList);
             return ingredientList;
@@ -317,19 +317,17 @@ function displayFilterIngredientList(_recipes) {
 displayFilterIngredientList(ingredientList)
 
 
-function displayFilterTagAppareil(appliance){
-    let filterTag = "";
-    // filterTag =
-    // filterTag +
-    // `<div class="filterTag">${appliance}</div>`;
-    // console.log(filterTag)
-
-    document.getElementById('liste').addEventListener('click', function() {
-        filterTagContainerAppareil.innerHTML += filterTag;
+// function displayFilterTagAppareil(appliance){
+    searchInput.addEventListener('input', function(e) {
+        let userInput = e.target.value.toLowerCase();
+        let filterTag = applianceList.filter(function(appliance){
         filterTagContainerAppareil.style.display = 'block';
             filtres.style.marginTop = "60px";
             cross2.style.display = "block";
+            return appliance.toLowerCase().includes(userInput); 
         })
+        console.log(filterTag);
+    });
     cross2.addEventListener('click', function() {
         filterTagContainerAppareil.innerHTML = "";
         filterTagContainerAppareil.style.display = 'none';
@@ -339,15 +337,8 @@ function displayFilterTagAppareil(appliance){
             filtres.style.marginTop = "0";
         }
     })
-}
+// }
 
-function displayFilterApplianceList(_recipes) {
-    filterTagContainerAppareil.innerHTML = "";   
-    applianceList.forEach(function(appliance) {
-        displayFilterTagAppareil(appliance)
-    });
-}
-displayFilterApplianceList(applianceList)
 
 
 function displayFilterTagUstensile(ustensilList){
