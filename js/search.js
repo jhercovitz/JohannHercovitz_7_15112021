@@ -23,7 +23,7 @@ let filteredIngredient = [];
 let filteredAppliance = [];
 let filteredUstensil = [];
 const cross1 = document.getElementById('cross1');
-const filterTagContainerIngredient = document.getElementById('filterTagContainerIngredient');
+let filterTagContainerIngredient = document.getElementById('filterTagContainerIngredient');
 const cross2 = document.getElementById('cross2');
 const filterTagContainerAppareil = document.getElementById('filterTagContainerAppareil');
 const cross3 = document.getElementById('cross3');
@@ -266,20 +266,20 @@ ustensileBig.addEventListener('input', function(e) {
      displayUstensilList(filteredUstensil);
     })
 
-
-
-// function displayFilterTagIngredient(ingredientList){
-const liIngredientList = [...ingredientContainer.querySelectorAll("li")];
+    
+// function displayFilterTagIngredient(ingredient){
+    const liIngredientList = [...ingredientContainer.querySelectorAll("li")];
 liIngredientList.forEach((li) => {
     li.addEventListener("click", (e) => {
         console.log(e.target.textContent)
         filterTagContainerIngredient.style.display = 'block';
-            filtres.style.marginTop = "60px";
-            cross1.style.display = "block";
-            return e.target.textContent;
+        filtres.style.marginTop = "60px";
+        cross1.style.display = "block";
+        filterTagContainerIngredient.innerHTML = e.target.textContent
     })
-});
+})
 // }
+
 
     cross1.addEventListener('click', function() {
         filterTagContainerIngredient.innerHTML = "";
@@ -299,8 +299,10 @@ liIngredientList.forEach((li) => {
         filterTagContainerAppareil.style.display = 'block'; 
             filtres.style.marginTop = "60px";
             cross2.style.display = "block";
+            filterTagContainerAppareil.innerHTML = e.target.textContent
+
         })
-    });
+    })
 
     cross2.addEventListener('click', function() {
         filterTagContainerAppareil.innerHTML = "";
@@ -321,8 +323,10 @@ liIngredientList.forEach((li) => {
         filterTagContainerUstensile.style.display = 'block';
             filtres.style.marginTop = "60px";
             cross3.style.display = "block";
+            filterTagContainerUstensile.innerHTML = e.target.textContent
+
         })
-    });
+    })
 
     cross3.addEventListener('click', function() {
         filterTagContainerUstensile.innerHTML = "";

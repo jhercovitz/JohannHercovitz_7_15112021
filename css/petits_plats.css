@@ -340,6 +340,9 @@ li {
     margin-left: 5%;
     align-items: center;
     display: none;
+    color: white;
+    font-size: 14px;
+    padding-left: 10px;
 }
 
 #filterTagContainerAppareil {
@@ -351,6 +354,9 @@ li {
     margin-left: 285.5px;
     align-items: center;
     display: none;
+    color: white;
+    font-size: 14px;
+    padding-left: 10px;
 }
 
 #filterTagContainerUstensile {
@@ -361,6 +367,9 @@ li {
     position: absolute;
     margin-left: 496px;
     display: none;
+    color: white;
+    font-size: 14px;
+    padding-left: 10px;
 }
 
 .filterTag {
