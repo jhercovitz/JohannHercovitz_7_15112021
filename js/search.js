@@ -272,10 +272,10 @@ ustensileBig.addEventListener('input', function(e) {
 liIngredientList.forEach((li) => {
     li.addEventListener("click", (e) => {
         console.log(e.target.textContent)
-        filterTagContainerIngredient.style.display = 'block';
+        filterTagContainerIngredient.style.display = 'flex';
         filtres.style.marginTop = "60px";
         cross1.style.display = "block";
-        filterTagContainerIngredient.innerHTML = e.target.textContent
+        document.getElementById('textIngTag').innerHTML = e.target.textContent
     })
 })
 // }
@@ -286,7 +286,7 @@ liIngredientList.forEach((li) => {
         filterTagContainerIngredient.style.display = 'none';
         cross1.style.display = "none";
 
-        if (filterTagContainerAppareil.style.display != "block" || filterTagContainerUstensile.style.display != "block"){
+        if (filterTagContainerAppareil.style.display != "flex" || filterTagContainerUstensile.style.display != "flex"){
             filtres.style.marginTop = "0";
         }
     })
@@ -296,10 +296,10 @@ liIngredientList.forEach((li) => {
     liApplianceList.forEach((li) => {
         li.addEventListener("click", (e) => {
             console.log(e.target.textContent)
-        filterTagContainerAppareil.style.display = 'block'; 
+        filterTagContainerAppareil.style.display = 'flex'; 
             filtres.style.marginTop = "60px";
             cross2.style.display = "block";
-            filterTagContainerAppareil.innerHTML = e.target.textContent
+            document.getElementById('textAppTag').innerHTML = e.target.textContent
 
         })
     })
@@ -309,7 +309,7 @@ liIngredientList.forEach((li) => {
         filterTagContainerAppareil.style.display = 'none';
         cross2.style.display = "none";
 
-        if (filterTagContainerIngredient.style.display != "block" && filterTagContainerUstensile.style.display != "block"){
+        if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerUstensile.style.display != "flex"){
             filtres.style.marginTop = "0";
         }
     })
@@ -320,10 +320,10 @@ liIngredientList.forEach((li) => {
     liUstensilList.forEach((li) => {
         li.addEventListener("click", (e) => {
             console.log(e.target.textContent)
-        filterTagContainerUstensile.style.display = 'block';
+        filterTagContainerUstensile.style.display = 'flex';
             filtres.style.marginTop = "60px";
             cross3.style.display = "block";
-            filterTagContainerUstensile.innerHTML = e.target.textContent
+            document.getElementById('textUstTag').innerHTML = e.target.textContent
 
         })
     })
@@ -333,7 +333,7 @@ liIngredientList.forEach((li) => {
         filterTagContainerUstensile.style.display = 'none';
         cross3.style.display = "none";
         
-        if (filterTagContainerIngredient.style.display != "block" && filterTagContainerAppareil.style.display != "block"){
+        if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerAppareil.style.display != "flex"){
             filtres.style.marginTop = "0";
         }
     })

@@ -332,8 +332,8 @@ li {
 }
 
 #filterTagContainerIngredient {
-    width: 107px;
-    height: 37px;
+    min-width: 107px;
+    min-height: 37px;
     border-radius: 5px;
     background-color: #3282F7;
     position: absolute;
@@ -345,9 +345,21 @@ li {
     padding-left: 10px;
 }
 
+#textIngTag {
+    width: 70%;
+}
+
+#textAppTag {
+    width: 70%;
+}
+
+#textUstTag {
+    width: 70%;
+}
+
 #filterTagContainerAppareil {
-    width: 107px;
-    height: 37px;
+    min-width: 107px;
+    min-height: 37px;
     border-radius: 5px;
     background-color: #68D9A4;
     position: absolute;
@@ -360,8 +372,8 @@ li {
 }
 
 #filterTagContainerUstensile {
-    width: 107px;
-    height: 37px;
+    min-width: 107px;
+    min-height: 37px;
     border-radius: 5px;
     background-color: #ED6454;
     position: absolute;
@@ -370,6 +382,7 @@ li {
     color: white;
     font-size: 14px;
     padding-left: 10px;
+    align-items: center;
 }
 
 .filterTag {
@@ -380,31 +393,31 @@ li {
 #cross1 {
     display: none;
     cursor: pointer;
-    margin-left: 150px;
-    margin-top: 10px;
+    margin-left: 67%;
     color: white;
     position: absolute;
     z-index: 1;
+    font-size: 18px;
 }
 
 #cross2 {
     display: none;
     cursor: pointer;
-    margin-left: 360px;
-    margin-top: 10px;
+    margin-left: 67%;
     color: white;
     position: absolute;
     z-index: 1;
+    font-size: 18px;
 }
 
 #cross3 {
     display: none;
     cursor: pointer;
-    margin-left: 570px;
-    margin-top: 10px;
+    margin-left: 67%;
     color: white;
     position: absolute;
     z-index: 1;
+    font-size: 18px;
 }
 
 @media only screen and (max-width: 1024px) {
