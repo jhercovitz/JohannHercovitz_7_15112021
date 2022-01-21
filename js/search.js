@@ -1,8 +1,9 @@
 import { recipes } from "./recipes.js"
+import { generateIngredients, generateAppliance, generateUstensils } from "./generate.js"
 
 
 const searchInput = document.getElementById('recherche');
-let filteredRecipe = [];
+let filteredRecipe = [...recipes];
 const chevronIngredientDown = document.getElementById('chevronIngredient')
 const chevronIngredientUp = document.getElementById('chevronIngredientUp');
 const chevronAppareilDown = document.getElementById('chevronAppareil');
@@ -22,13 +23,14 @@ const ingredientInput = document.getElementById('ingredient');
 let filteredIngredient = [];
 let filteredAppliance = [];
 let filteredUstensil = [];
-const cross1 = document.getElementById('cross1');
+let cross1 = document.getElementById('cross1');
 let filterTagContainerIngredient = document.getElementById('filterTagContainerIngredient');
 const cross2 = document.getElementById('cross2');
 const filterTagContainerAppareil = document.getElementById('filterTagContainerAppareil');
 const cross3 = document.getElementById('cross3');
 const filterTagContainerUstensile = document.getElementById('filterTagContainerUstensile');
 const filtres = document.getElementById('filtres');
+const filterTagDiv = document.querySelector('.filterTagDiv');
 
 
 // filtre les recette en fonction de l'input
@@ -149,34 +151,13 @@ function displayRecipeList(recipeList) {
 
 
 // génère les listes dans les dropdowns
-function generateIngredients(recipeList) {
-    let tempIngredient = [];
-    for (let i = 0; i < recipeList.length; i++) {
-       for (let j = 0; j < recipeList[i].ingredients.length; j++){
-        tempIngredient.push(recipeList[i].ingredients[j].ingredient);
-    } 
-    }
-    return [...new Set(tempIngredient)];
-}
+
 ingredientList = generateIngredients(recipes);
 
-function generateAppliance(appareils) {
-    let tempAppliance = [];
-    tempAppliance = appareils.map(appliance => `${appliance.appliance}`);
-    document.getElementById('appareil').innerHTML = applianceList;
-    return [...new Set(tempAppliance)];
-}
+
 applianceList =  generateAppliance(recipes);
 
-function generateUstensils(recipeList) {
-    let tempUstensile = [];
-    for (let i = 0; i < recipeList.length; i++) {
-       for (let j = 0; j < recipeList[i].ustensils.length; j++){
-        tempUstensile.push(recipeList[i].ustensils[j])
-       } 
-    }
-    return [...new Set(tempUstensile)];
-}
+
 ustensilList =  generateUstensils(recipes)
 
 
@@ -273,17 +254,27 @@ ustensileBig.addEventListener('input', function(e) {
     const liIngredientList = [...ingredientContainer.querySelectorAll("li")];
     liIngredientList.forEach((li) => {
     li.addEventListener("click", (e) => {
-        filterTagContainerIngredient.style.display = 'flex';
+        let tagIngredient = ``;
+        tagIngredient =
+        tagIngredient +
+         `<div id="filterTagContainerIngredient">
+            <div id="textIngTag"></div>
+            <i class="far fa-times-circle" id="cross1"></i>
+        </div>`
+        filterTagDiv.innerHTML += tagIngredient
         filtres.style.marginTop = "60px";
-        cross1.style.display = "block";
         document.getElementById('textIngTag').innerHTML = e.target.textContent;
-        // filteredRecipe = recipes.filter(function(recipe) {
-        //         console.log(e.target.textContent) // affiche 50 
+        // filteredRecipe = filteredRecipe.filter(function(recipe) { 
         //         return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(e.target.textContent))
         // })
         // displayRecipeList(filteredRecipe)
     })   
 })
+    // let cross1 = document.createElement('i')
+    // filterTagDiv.appendChild(cross1)
+    // cross1.className = "far fa-times-circle"
+    // cross1.id = 'cross1'
+
     cross1.addEventListener('click', function() {
         filterTagContainerIngredient.style.display = 'none';
         cross1.style.display = "none";
@@ -291,94 +282,71 @@ ustensileBig.addEventListener('input', function(e) {
         if (filterTagContainerAppareil.style.display != "flex" || filterTagContainerUstensile.style.display != "flex"){
             filtres.style.marginTop = "0";
         }
-        // displayRecipeList(recipes)
+        displayRecipeList(recipes)
     })
 
     const liApplianceList = [...appareilContainer.querySelectorAll("li")];
     liApplianceList.forEach((li) => {
         li.addEventListener("click", (e) => {
-        filterTagContainerAppareil.style.display = 'flex'; 
+            let tagAppareil = ``
+            tagAppareil =
+            tagAppareil +
+        `<div id="filterTagContainerAppareil">
+            <div id="textAppTag"></div>
+            <i class="far fa-times-circle" id="cross2"></i>
+        </div>`
+        filterTagDiv.innerHTML += tagAppareil;
             filtres.style.marginTop = "60px";
-            cross2.style.display = "block";
             document.getElementById('textAppTag').innerHTML = e.target.textContent;
         //     filteredRecipe = recipes.filter(function(recipe) {
-        //         console.log(e.target.textContent) // affiche 50 
         //         return recipe.appliance.includes(e.target.textContent);
         // })
         // displayRecipeList(filteredRecipe)
         })
     })
-    cross2.addEventListener('click', function() {
-        filterTagContainerAppareil.style.display = 'none';
-        cross2.style.display = "none";
+    // cross2.addEventListener('click', function() {
+    //     filterTagContainerAppareil.style.display = 'none';
+    //     cross2.style.display = "none";
 
-        if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerUstensile.style.display != "flex"){
-            filtres.style.marginTop = "0";
-        }
-        // displayRecipeList(recipes)
-    })
+    //     if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerUstensile.style.display != "flex"){
+    //         filtres.style.marginTop = "0";
+    //     }
+    //     // displayRecipeList(recipes)
+    // })
 
     const liUstensilList = [...ustensileContainer.querySelectorAll("li")];
     liUstensilList.forEach((li) => {
         li.addEventListener("click", (e) => {
-        filterTagContainerUstensile.style.display = 'flex';
+            let tagUstensile = ``
+            tagUstensile =
+            tagUstensile +
+            `<div id="filterTagContainerUstensile">
+            <div id="textUstTag"></div>
+            <i class="far fa-times-circle" id="cross3"></i>
+        </div>`
+        filterTagDiv.innerHTML += tagUstensile;
             filtres.style.marginTop = "60px";
-            cross3.style.display = "block";
             document.getElementById('textUstTag').innerHTML = e.target.textContent;
         //     filteredRecipe = recipes.filter(function(recipe) {
-        //         console.log(e.target.textContent) // affiche 50 
         //         return recipe.ustensils.includes(e.target.textContent);
         // })
         // displayRecipeList(filteredRecipe)
         })
     })
-    cross3.addEventListener('click', function() {
-        filterTagContainerUstensile.style.display = 'none';
-        cross3.style.display = "none";
+    // cross3.addEventListener('click', function() {
+    //     filterTagContainerUstensile.style.display = 'none';
+    //     cross3.style.display = "none";
         
-        if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerAppareil.style.display != "flex"){
-            filtres.style.marginTop = "0";
-        }
-        // displayRecipeList(recipes)
-    })
+    //     if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerAppareil.style.display != "flex"){
+    //         filtres.style.marginTop = "0";
+    //     }
+    //     // displayRecipeList(recipes)
+    // })
 
 
-// filtre des recettes en fonction des tags
-    liIngredientList.forEach((li) => {
-        li.addEventListener("click", (e) => {
-            filteredRecipe = recipes.filter(function(recipe) {
-                    console.log(e.target.textContent) // affiche 50 
-                    return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(e.target.textContent))
-            })
-            displayRecipeList(filteredRecipe)
-        })   
-    })
-    cross1.addEventListener('click', function() {
-        displayRecipeList(recipes)
-    })
-
-    liApplianceList.forEach((li) => {
-        li.addEventListener("click", (e) => {
-            filteredRecipe = recipes.filter(function(recipe) {
-                console.log(e.target.textContent) // affiche 50 
-                return recipe.appliance.includes(e.target.textContent);
-        })
-        displayRecipeList(filteredRecipe)
-        })
-    })
-    cross2.addEventListener('click', function() {
-        displayRecipeList(recipes)
-    })
-
-    liUstensilList.forEach((li) => {
-        li.addEventListener("click", (e) => {
-            filteredRecipe = recipes.filter(function(recipe) {
-                console.log(e.target.textContent) // affiche 50 
-                return recipe.ustensils.includes(e.target.textContent);
-        })
-        displayRecipeList(filteredRecipe)
-        })
-    })
-    cross3.addEventListener('click', function() {
-        displayRecipeList(recipes)
-    })
+    function applyFilter(recipeList) {
+        const tempRecipes = [...recipeList];
+        // Recuperer les tags du DOM
+        // 
+        return tempRecipes
+    }
