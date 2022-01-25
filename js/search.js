@@ -259,8 +259,10 @@ liIngredientList.forEach((li) => {
             <div class="textTag">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
         </div>`
-        filterTagDivIng.innerHTML += tagIngredient
+        filterTagDivIng.innerHTML += tagIngredient;
         filtres.style.marginTop = "5px";
+        filterTagDivApp.style.marginLeft = '-186px';
+
         // filteredRecipe = filteredRecipe.filter(function(recipe) { 
         //         return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(e.target.textContent))
         // })
@@ -276,37 +278,41 @@ liIngredientList.forEach((li) => {
 //     filterTagContainerIngredient.style.display = 'none';
 //     document.getElementById('cross1').style.display = "none";
 
-if (filterTagContainerAppareil.style.display != "flex" || filterTagContainerUstensile.style.display != "flex") {
-    filtres.style.marginTop = "0";
-}
-// displayRecipeList(recipes)
+//     if (filterTagContainerAppareil.style.display != "flex" || filterTagContainerUstensile.style.display != "flex") {
+//         filtres.style.marginTop = "0";
+//     }
+//     // displayRecipeList(recipes)
 // })
 
 const liApplianceList = [...appareilContainer.querySelectorAll("li")];
 liApplianceList.forEach((li) => {
-        li.addEventListener("click", (e) => {
-            let tagAppareil = ``
-            tagAppareil =
-                tagAppareil +
-                `<div class="filterTagContainerAppareil">
+    li.addEventListener("click", (e) => {
+        let tagAppareil = ``
+        tagAppareil =
+            tagAppareil +
+            `<div class="filterTagContainerAppareil">
             <div class="textTag">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
         </div>`
-            filterTagDivApp.innerHTML += tagAppareil;
-            filtres.style.marginTop = "5px";
-            //     filteredRecipe = recipes.filter(function(recipe) {
-            //         return recipe.appliance.includes(e.target.textContent);
-            // })
-            // displayRecipeList(filteredRecipe)
-        })
-    })
-    // cross2.addEventListener('click', function() {
-    //     filterTagContainerAppareil.style.display = 'none';
-    //     cross2.style.display = "none";
+        filterTagDivApp.innerHTML += tagAppareil;
+        filtres.style.marginTop = "5px";
+        filterTagDivUst.style.marginLeft = '-402px'
 
-if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerUstensile.style.display != "flex") {
-    filtres.style.marginTop = "0";
-}
+
+        //     filteredRecipe = recipes.filter(function(recipe) {
+        //         return recipe.appliance.includes(e.target.textContent);
+        // })
+        // displayRecipeList(filteredRecipe)
+    })
+})
+
+// cross2.addEventListener('click', function() {
+//     filterTagContainerAppareil.style.display = 'none';
+//     cross2.style.display = "none";
+
+// if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerUstensile.style.display != "flex"){
+//     filtres.style.marginTop = "0";
+// }
 //     // displayRecipeList(recipes)
 // })
 
@@ -332,9 +338,9 @@ liUstensileList.forEach((li) => {
     //     filterTagContainerUstensile.style.display = 'none';
     //     cross3.style.display = "none";
 
-if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerAppareil.style.display != "flex") {
-    filtres.style.marginTop = "0";
-}
+//     if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerAppareil.style.display != "flex"){
+//         filtres.style.marginTop = "0";
+//     }
 //     // displayRecipeList(recipes)
 // })
 

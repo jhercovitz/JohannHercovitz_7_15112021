@@ -335,18 +335,19 @@ li {
 #filterTagDivIng {
     display: flex;
     flex-direction: column;
+    margin-left: -6px;
 }
 
 #filterTagDivApp {
     display: flex;
     flex-direction: column;
-    margin-left: -191px;
+    margin-left: -75px;
 }
 
 #filterTagDivUst {
     display: flex;
     flex-direction: column;
-    margin-left: -402px;
+    margin-left: -1px;
 }
 
 .filterTagContainerIngredient {
