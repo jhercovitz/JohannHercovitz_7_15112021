@@ -329,7 +329,24 @@ li {
 
 .filterTagDiv {
     display: flex;
-    flex-direction: column-reverse;
+    margin-left: 5%;
+}
+
+#filterTagDivIng {
+    display: flex;
+    flex-direction: column;
+}
+
+#filterTagDivApp {
+    display: flex;
+    flex-direction: column;
+    margin-left: -191px;
+}
+
+#filterTagDivUst {
+    display: flex;
+    flex-direction: column;
+    margin-left: -402px;
 }
 
 .filterTagContainerIngredient {
@@ -375,15 +392,7 @@ li {
     align-items: center;
 }
 
-.textIngTag {
-    width: 70%;
-}
-
-#textAppTag {
-    width: 70%;
-}
-
-#textUstTag {
+.textTag {
     width: 70%;
 }
 
@@ -392,7 +401,7 @@ li {
     font-size: 14px;
 }
 
-#cross1 {
+.fa-times-circle {
     /* display: block;
     color: white;
     position: absolute;
@@ -402,29 +411,37 @@ li {
     margin-left: 5%;
 }
 
-#cross2 {
-    /* display: block;
-    cursor: pointer;
-    margin-left: 67%;
-    color: white;
-    position: absolute;
-    z-index: 1; */
-    font-size: 18px;
-    cursor: pointer;
-    margin-left: 5%;
-}
 
-#cross3 {
+/* #cross2 {
     /* display: block;
     cursor: pointer;
     margin-left: 67%;
     color: white;
     position: absolute;
     z-index: 1; */
-    font-size: 18px;
+
+
+/* font-size: 18px;
     cursor: pointer;
     margin-left: 5%;
-}
+} */
+
+
+/* #cross3 { */
+
+
+/* display: block;
+    cursor: pointer;
+    margin-left: 67%;
+    color: white;
+    position: absolute;
+    z-index: 1; */
+
+
+/* font-size: 18px;
+    cursor: pointer;
+    margin-left: 5%;
+} */
 
 
 /* @media only screen and (max-width: 1024px) {
