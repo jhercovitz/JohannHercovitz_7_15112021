@@ -49,34 +49,6 @@ searchInput.addEventListener('input', function(e) {
     displayRecipeList(filteredRecipe);
 })
 
-// affichage des recettes
-// function displayRecipe(name, description, time, ingredients) {
-//     let recipeCard = ``;
-//     recipeCard =
-//         recipeCard +
-//         `<div class="recettes">
-// <div class="gris_fonce"></div>
-// <p class="p1">${name}</p>
-// <i class="far fa-clock item">
-// <p class="p4">${time} min</p></i>
-// <div class="ingredients_recette">
-// <p class="p2">${ingredients.map(ingredient => `${ingredient.ingredient}: ${ingredient.quantity || ""} ${ingredient.unit ? ingredient.unit : ""}<br>`).join(' ')}</p>
-// </div>
-// <div class="description">
-// <p class="p3">${description}</p>
-// </div>
-// </div>`;
-// document.querySelector('section').innerHTML += recipeCard;
-// }
-
-// function displayRecipeList(recipeList) {
-//     document.querySelector('section').innerHTML = "";
-//     recipeList.forEach(function(recipe) {
-//         displayRecipe(recipe.name, recipe.description, recipe.time, recipe.ingredients)
-//     });
-// }
-//  displayRecipeList(recipes)
-
 
 // gère les évènements sur les dropdowns
 chevronIngredientDown.addEventListener('click', function(e) {
@@ -153,7 +125,6 @@ chevronUstensileUp.addEventListener('click', function() {
 
 
 // génère les listes dans les dropdowns
-
 ingredientList = generateIngredients(recipes);
 applianceList = generateAppliance(recipes);
 ustensilList = generateUstensils(recipes)
@@ -270,13 +241,16 @@ liIngredientList.forEach((li) => {
     })
 })
 
-// let cross1 = document.createElement('i')
-// filterTagDiv.appendChild(cross1)
-// cross1.className = "far fa-times-circle"
-// cross1.id = 'cross1'
-// document.getElementById('cross1').addEventListener('click', function() {
-//     filterTagContainerIngredient.style.display = 'none';
-//     document.getElementById('cross1').style.display = "none";
+const cross1 = [...filterTagDivIng.querySelectorAll("i")];
+cross1.forEach((i) => {
+        i.addEventListener("click", () => {
+            document.getElementsByClassName('filterTagContainerIngredient').style.display = 'none';
+            i.style.display = "none";
+        })
+    })
+    // document.getElementsByClassName('fa-times-circle').addEventListener('click', function() {
+    //     document.getElementsByClassName('filterTagContainerIngredient').style.display = 'none';
+    //     document.getElementsByClassName('fa-times-circle').style.display = "none";
 
 //     if (filterTagContainerAppareil.style.display != "flex" || filterTagContainerUstensile.style.display != "flex") {
 //         filtres.style.marginTop = "0";
@@ -297,12 +271,10 @@ liApplianceList.forEach((li) => {
         filterTagDivApp.innerHTML += tagAppareil;
         filtres.style.marginTop = "5px";
         filterTagDivUst.style.marginLeft = '-402px'
-
-
-        //     filteredRecipe = recipes.filter(function(recipe) {
-        //         return recipe.appliance.includes(e.target.textContent);
-        // })
-        // displayRecipeList(filteredRecipe)
+            //     filteredRecipe = recipes.filter(function(recipe) {
+            //         return recipe.appliance.includes(e.target.textContent);
+            // })
+            // displayRecipeList(filteredRecipe)
     })
 })
 
@@ -327,7 +299,7 @@ liUstensileList.forEach((li) => {
             <i class="far fa-times-circle"></i>
         </div>`
             filterTagDivUst.innerHTML += tagUstensile;
-            filtres.style.marginTop = "5px";
+            filtres.style.marginTop = "60px";
             //     filteredRecipe = recipes.filter(function(recipe) {
             //         return recipe.ustensils.includes(e.target.textContent);
             // })
