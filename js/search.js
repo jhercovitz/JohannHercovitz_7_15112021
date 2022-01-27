@@ -1,9 +1,7 @@
 import { recipes } from "./recipes.js"
 import { generateIngredients, generateAppliance, generateUstensils } from "./generate.js"
 // import { displayRecipe, displayRecipeList, displayIngredient, displayIngredientList, displayAppliance, displayApplianceList, displayUstensil, displayUstensil } from "./display.js";
-import { displayRecipe, displayRecipeList } from "./display.js";
-
-
+import { displayRecipeList } from "./display.js";
 
 const searchInput = document.getElementById('recherche');
 let filteredRecipe = [...recipes];
@@ -26,13 +24,11 @@ const ingredientInput = document.getElementById('ingredient');
 let filteredIngredient = [];
 let filteredAppliance = [];
 let filteredUstensil = [];
-let filterTagContainerIngredient = document.getElementById('filterTagContainerIngredient');
-const cross2 = document.getElementById('cross2');
-const filterTagContainerAppareil = document.getElementById('filterTagContainerAppareil');
-const cross3 = document.getElementById('cross3');
-const filterTagContainerUstensile = document.getElementById('filterTagContainerUstensile');
 const filtres = document.getElementById('filtres');
-const filterTagDiv = document.querySelector('.filterTagDiv');
+// const filterTagDiv = document.querySelector('.filterTagDiv');
+const filterTagDivIng = document.getElementById("filterTagDivIng");
+const filterTagDivApp = document.getElementById("filterTagDivApp");
+const filterTagDivUst = document.getElementById("filterTagDivUst");
 
 
 // filtre les recette en fonction de l'input
@@ -223,11 +219,10 @@ ustensileBig.addEventListener('input', function(e) {
 const liIngredientList = [...ingredientContainer.querySelectorAll("li")];
 liIngredientList.forEach((li) => {
     li.addEventListener("click", (e) => {
-        let tagIngredient = ``;
-        tagIngredient =
-            tagIngredient +
-            `<div class="filterTagContainerIngredient">
-            <div class="textTag">${e.target.textContent}</div>
+        // let tagIngredient = ``;
+        let tagIngredient =
+            `<div class="filterTagContainer tagIngredient">
+            <div class="textTag" data-type="ing">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
         </div>`
         filterTagDivIng.innerHTML += tagIngredient;
@@ -238,25 +233,21 @@ liIngredientList.forEach((li) => {
         //         return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(e.target.textContent))
         // })
         // displayRecipeList(filteredRecipe)
+
+        ///////////////////////// SUPPRESSION DE TAG
+        const cross = [...filterTagDivIng.querySelectorAll("i")];
+        cross.forEach((i) => {
+            i.addEventListener("click", (e) => {
+                e.target.parentNode.remove()
+            })
+        })
     })
 })
 
-const cross1 = [...filterTagDivIng.querySelectorAll("i")];
-cross1.forEach((i) => {
-        i.addEventListener("click", () => {
-            document.getElementsByClassName('filterTagContainerIngredient').style.display = 'none';
-            i.style.display = "none";
-        })
-    })
-    // document.getElementsByClassName('fa-times-circle').addEventListener('click', function() {
-    //     document.getElementsByClassName('filterTagContainerIngredient').style.display = 'none';
-    //     document.getElementsByClassName('fa-times-circle').style.display = "none";
 
 //     if (filterTagContainerAppareil.style.display != "flex" || filterTagContainerUstensile.style.display != "flex") {
 //         filtres.style.marginTop = "0";
 //     }
-//     // displayRecipeList(recipes)
-// })
 
 const liApplianceList = [...appareilContainer.querySelectorAll("li")];
 liApplianceList.forEach((li) => {
@@ -264,62 +255,55 @@ liApplianceList.forEach((li) => {
         let tagAppareil = ``
         tagAppareil =
             tagAppareil +
-            `<div class="filterTagContainerAppareil">
-            <div class="textTag">${e.target.textContent}</div>
+            `<div class="filterTagContainer tagAppareil">
+            <div class="textTag" data-type="app">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
         </div>`
         filterTagDivApp.innerHTML += tagAppareil;
+        filterTagDivApp.style.display = "flex"
         filtres.style.marginTop = "5px";
-        filterTagDivUst.style.marginLeft = '-402px'
-            //     filteredRecipe = recipes.filter(function(recipe) {
-            //         return recipe.appliance.includes(e.target.textContent);
-            // })
-            // displayRecipeList(filteredRecipe)
+        filterTagDivUst.style.marginLeft = '-334px'
+
+        const cross = [...filterTagDivApp.querySelectorAll("i")];
+        cross.forEach((i) => {
+            i.addEventListener("click", (e) => {
+                e.target.parentNode.remove()
+            })
+        })
     })
 })
 
-// cross2.addEventListener('click', function() {
-//     filterTagContainerAppareil.style.display = 'none';
-//     cross2.style.display = "none";
-
-// if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerUstensile.style.display != "flex"){
-//     filtres.style.marginTop = "0";
-// }
-//     // displayRecipeList(recipes)
-// })
-
 const liUstensileList = [...ustensileContainer.querySelectorAll("li")];
 liUstensileList.forEach((li) => {
-        li.addEventListener("click", (e) => {
-            let tagUstensile = ``
-            tagUstensile =
-                tagUstensile +
-                `<div class="filterTagContainerUstensile">
-            <div class="textTag">${e.target.textContent}</div>
+    li.addEventListener("click", (e) => {
+        let tagUstensile = ``
+        tagUstensile =
+            tagUstensile +
+            `<div class="filterTagContainer tagUstensile">
+            <div class="textTag" data-type="ust">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
         </div>`
-            filterTagDivUst.innerHTML += tagUstensile;
-            filtres.style.marginTop = "60px";
-            //     filteredRecipe = recipes.filter(function(recipe) {
-            //         return recipe.ustensils.includes(e.target.textContent);
-            // })
-            // displayRecipeList(filteredRecipe)
+        filterTagDivUst.innerHTML += tagUstensile;
+        filtres.style.marginTop = "5px";
+
+        const cross = [...filterTagDivUst.querySelectorAll("i")];
+        cross.forEach((i) => {
+            i.addEventListener("click", (e) => {
+                e.target.parentNode.remove()
+            })
         })
     })
-    // cross3.addEventListener('click', function() {
-    //     filterTagContainerUstensile.style.display = 'none';
-    //     cross3.style.display = "none";
-
-//     if (filterTagContainerIngredient.style.display != "flex" && filterTagContainerAppareil.style.display != "flex"){
-//         filtres.style.marginTop = "0";
-//     }
-//     // displayRecipeList(recipes)
-// })
+})
 
 
 function applyFilter(recipeList) {
     const tempRecipes = [...recipeList];
     // Recuperer les tags du DOM
-    // 
+    const allTagsElem = [...document.querySelectorAll(".textTag")];
+    const allTags = allTagsElem.map((domElem) => ({
+        value: domElem.textContent,
+        type: domElem.getAttribute("data-type")
+    }));
+    console.log(allTags)
     return tempRecipes
 }

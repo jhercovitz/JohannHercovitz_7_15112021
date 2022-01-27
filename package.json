@@ -1,0 +1,23 @@
+{
+  "name": "livrables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhercovitz/JohannHercovitz_7_15112021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhercovitz/JohannHercovitz_7_15112021/issues"
+  },
+  "homepage": "https://github.com/jhercovitz/JohannHercovitz_7_15112021#readme"
+}

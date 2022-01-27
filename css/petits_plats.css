@@ -339,7 +339,7 @@ li {
 }
 
 #filterTagDivApp {
-    display: flex;
+    display: none;
     flex-direction: column;
     margin-left: -70px;
 }
@@ -349,47 +349,31 @@ li {
     flex-direction: column;
 }
 
-.filterTagContainerIngredient {
+.filterTagContainer {
     width: 107px;
     min-height: 37px;
     border-radius: 5px;
+    margin-bottom: 15px;
+    align-items: center;
+    display: flex;
+    color: white;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.tagIngredient {
     background-color: #3282F7;
     margin-left: 5%;
-    margin-bottom: 15px;
-    align-items: center;
-    display: flex;
-    color: white;
-    font-size: 14px;
-    padding-left: 10px;
 }
 
-.filterTagContainerAppareil {
-    width: 107px;
-    min-height: 37px;
-    border-radius: 5px;
+.tagAppareil {
     background-color: #68D9A4;
     margin-left: 285.5px;
-    margin-bottom: 15px;
-    align-items: center;
-    display: flex;
-    color: white;
-    font-size: 14px;
-    padding-left: 10px;
 }
 
-.filterTagContainerUstensile {
-    width: 107px;
-    min-height: 37px;
-    border-radius: 5px;
+.tagUstensile {
     background-color: #ED6454;
-    position: absolute;
-    margin-left: 496px;
-    margin-bottom: 15px;
-    display: flex;
-    color: white;
-    font-size: 14px;
-    padding-left: 10px;
-    align-items: center;
+    margin-left: 427px;
 }
 
 .textTag {
@@ -410,38 +394,6 @@ li {
     cursor: pointer;
     margin-left: 5%;
 }
-
-
-/* #cross2 {
-    /* display: block;
-    cursor: pointer;
-    margin-left: 67%;
-    color: white;
-    position: absolute;
-    z-index: 1; */
-
-
-/* font-size: 18px;
-    cursor: pointer;
-    margin-left: 5%;
-} */
-
-
-/* #cross3 { */
-
-
-/* display: block;
-    cursor: pointer;
-    margin-left: 67%;
-    color: white;
-    position: absolute;
-    z-index: 1; */
-
-
-/* font-size: 18px;
-    cursor: pointer;
-    margin-left: 5%;
-} */
 
 
 /* @media only screen and (max-width: 1024px) {
