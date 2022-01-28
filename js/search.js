@@ -219,7 +219,6 @@ ustensileBig.addEventListener('input', function(e) {
 const liIngredientList = [...ingredientContainer.querySelectorAll("li")];
 liIngredientList.forEach((li) => {
     li.addEventListener("click", (e) => {
-        // let tagIngredient = ``;
         let tagIngredient =
             `<div class="filterTagContainer tagIngredient">
             <div class="textTag" data-type="ing">${e.target.textContent}</div>
@@ -229,12 +228,8 @@ liIngredientList.forEach((li) => {
         filtres.style.marginTop = "5px";
         filterTagDivApp.style.marginLeft = '-186px';
 
-        // filteredRecipe = filteredRecipe.filter(function(recipe) { 
-        //         return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(e.target.textContent))
-        // })
-        // displayRecipeList(filteredRecipe)
-
         ///////////////////////// SUPPRESSION DE TAG
+        // PROBLEME QUAND LES AUTRE TAGS SONT OUVERTS
         const cross = [...filterTagDivIng.querySelectorAll("i")];
         cross.forEach((i) => {
             i.addEventListener("click", (e) => {
@@ -252,9 +247,7 @@ liIngredientList.forEach((li) => {
 const liApplianceList = [...appareilContainer.querySelectorAll("li")];
 liApplianceList.forEach((li) => {
     li.addEventListener("click", (e) => {
-        let tagAppareil = ``
-        tagAppareil =
-            tagAppareil +
+        let tagAppareil =
             `<div class="filterTagContainer tagAppareil">
             <div class="textTag" data-type="app">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
@@ -276,9 +269,7 @@ liApplianceList.forEach((li) => {
 const liUstensileList = [...ustensileContainer.querySelectorAll("li")];
 liUstensileList.forEach((li) => {
     li.addEventListener("click", (e) => {
-        let tagUstensile = ``
-        tagUstensile =
-            tagUstensile +
+        let tagUstensile =
             `<div class="filterTagContainer tagUstensile">
             <div class="textTag" data-type="ust">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
@@ -304,6 +295,14 @@ function applyFilter(recipeList) {
         value: domElem.textContent,
         type: domElem.getAttribute("data-type")
     }));
-    console.log(allTags)
-    return tempRecipes
+    console.log("alltags", allTags)
+        // tempRecipes.push(allTags);
+    console.log("temp", tempRecipes)
+    return tempRecipes;
 }
+applyFilter(filteredRecipe);
+
+// filteredRecipe = filteredRecipe.filter(function(recipe) { 
+//         return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(e.target.textContent))
+// })
+// displayRecipeList(filteredRecipe)
