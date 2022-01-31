@@ -226,7 +226,7 @@ liIngredientList.forEach((li) => {
         </div>`
         filterTagDivIng.innerHTML += tagIngredient;
         filtres.style.marginTop = "5px";
-        filterTagDivApp.style.marginLeft = '-186px';
+        filterTagDivApp.style.marginLeft = '-117px';
 
         ///////////////////////// SUPPRESSION DE TAG
         // PROBLEME QUAND LES AUTRE TAGS SONT OUVERTS
@@ -253,9 +253,8 @@ liApplianceList.forEach((li) => {
             <i class="far fa-times-circle"></i>
         </div>`
         filterTagDivApp.innerHTML += tagAppareil;
-        filterTagDivApp.style.display = "flex"
         filtres.style.marginTop = "5px";
-        filterTagDivUst.style.marginLeft = '-334px'
+        filterTagDivUst.style.marginLeft = '-327px'
 
         const cross = [...filterTagDivApp.querySelectorAll("i")];
         cross.forEach((i) => {
@@ -297,7 +296,6 @@ function applyFilter(recipeList) {
     }));
     console.log("alltags", allTags)
         // tempRecipes.push(allTags);
-    console.log("temp", tempRecipes)
     return tempRecipes;
 }
 applyFilter(filteredRecipe);
