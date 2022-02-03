@@ -227,9 +227,12 @@ liIngredientList.forEach((li) => {
         filterTagDivIng.innerHTML += tagIngredient;
         filtres.style.marginTop = "5px";
         filterTagDivApp.style.marginLeft = '-117px';
+        const filteredByTagRecipe = applyFilter(filteredRecipe);
+        console.log(filteredByTagRecipe)
+        displayRecipeList(filteredByTagRecipe)
 
         ///////////////////////// SUPPRESSION DE TAG
-        // PROBLEME QUAND LES AUTRE TAGS SONT OUVERTS
+        // PROBLEME AVEC LE MARGIN QUAND LES AUTRE TAGS SONT OUVERTS
         const cross = [...filterTagDivIng.querySelectorAll("i")];
         cross.forEach((i) => {
             i.addEventListener("click", (e) => {
@@ -287,20 +290,32 @@ liUstensileList.forEach((li) => {
 
 
 function applyFilter(recipeList) {
-    const tempRecipes = [...recipeList];
-    // Recuperer les tags du DOM
+    let tempRecipes = [...recipeList];
+
     const allTagsElem = [...document.querySelectorAll(".textTag")];
     const allTags = allTagsElem.map((domElem) => ({
         value: domElem.textContent,
         type: domElem.getAttribute("data-type")
     }));
-    console.log("alltags", allTags)
-        // tempRecipes.push(allTags);
+
+    for (let i = 0; i < allTags.length; i += 1) {
+        const tagObj = allTags[i];
+
+        if (tagObj.type === "ing") {
+            tempRecipes = tempRecipes.filter(function(recipe) {
+                return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(tagObj.value))
+            })
+        }
+        if (tagObj.type === "app") {
+            tempRecipes = tempRecipes.filter(function(recipe) {
+                return recipe.appliance === tagObj.value
+            })
+        }
+        if (tagObj.type === "ust") {
+            tempRecipes = tempRecipes.filter(function(recipe) {
+                return recipe.ustensils.includes(tagObj.value)
+            })
+        }
+    }
     return tempRecipes;
 }
-applyFilter(filteredRecipe);
-
-// filteredRecipe = filteredRecipe.filter(function(recipe) { 
-//         return recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.includes(e.target.textContent))
-// })
-// displayRecipeList(filteredRecipe)

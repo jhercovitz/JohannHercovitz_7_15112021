@@ -16,19 +16,19 @@ export function displayRecipe(name, description, time, ingredients) {
     recipeCard =
         recipeCard +
         `<div class="recettes">
-<div class="gris_fonce"></div>
-<p class="p1">${name}</p>
-<i class="far fa-clock item">
-<p class="p4">${time} min</p></i>
-<div class="ingredients_recette">
-<p class="p2">${ingredients.map(ingredient => `${ingredient.ingredient}: ${ingredient.quantity || ""} ${ingredient.unit ? ingredient.unit : ""}<br>`).join(' ')}</p>
-</div>
-<div class="description">
-<p class="p3">${description}</p>
-</div>
-</div>`;
-document.querySelector('section').innerHTML += recipeCard;
-}
+        <div class="gris_fonce"></div>
+        <p class="p1">${name}</p>
+        <i class="far fa-clock item">
+        <p class="p4">${time} min</p></i>
+        <div class="ingredients_recette">
+        <p class="p2">${ingredients.map(ingredient => `${ingredient.ingredient}: ${ingredient.quantity || ""} ${ingredient.unit ? ingredient.unit : ""}<br>`).join(' ')}</p>
+        </div>
+        <div class="description">
+        <p class="p3">${description}</p>
+        </div>
+        </div>`;
+        document.querySelector('section').innerHTML += recipeCard;
+        }
 
 // Affichage des recettes filtrées
 export function displayRecipeList(recipeList) {
