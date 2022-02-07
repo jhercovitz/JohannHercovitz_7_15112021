@@ -228,7 +228,6 @@ liIngredientList.forEach((li) => {
         filtres.style.marginTop = "5px";
         filterTagDivApp.style.marginLeft = '-117px';
         const filteredByTagRecipe = applyFilter(filteredRecipe);
-        console.log(filteredByTagRecipe)
         displayRecipeList(filteredByTagRecipe)
 
         ///////////////////////// SUPPRESSION DE TAG
@@ -237,6 +236,8 @@ liIngredientList.forEach((li) => {
         cross.forEach((i) => {
             i.addEventListener("click", (e) => {
                 e.target.parentNode.remove()
+                const filteredByTagDeleted = applyFilter(filteredRecipe);
+                displayRecipeList(filteredByTagDeleted)
             })
         })
     })
@@ -258,11 +259,15 @@ liApplianceList.forEach((li) => {
         filterTagDivApp.innerHTML += tagAppareil;
         filtres.style.marginTop = "5px";
         filterTagDivUst.style.marginLeft = '-327px'
+        const filteredByTagRecipe = applyFilter(filteredRecipe);
+        displayRecipeList(filteredByTagRecipe)
 
         const cross = [...filterTagDivApp.querySelectorAll("i")];
         cross.forEach((i) => {
             i.addEventListener("click", (e) => {
                 e.target.parentNode.remove()
+                const filteredByTagDeleted = applyFilter(filteredRecipe);
+                displayRecipeList(filteredByTagDeleted)
             })
         })
     })
@@ -278,11 +283,15 @@ liUstensileList.forEach((li) => {
         </div>`
         filterTagDivUst.innerHTML += tagUstensile;
         filtres.style.marginTop = "5px";
+        const filteredByTagRecipe = applyFilter(filteredRecipe);
+        displayRecipeList(filteredByTagRecipe)
 
         const cross = [...filterTagDivUst.querySelectorAll("i")];
         cross.forEach((i) => {
             i.addEventListener("click", (e) => {
                 e.target.parentNode.remove()
+                const filteredByTagDeleted = applyFilter(filteredRecipe);
+                displayRecipeList(filteredByTagDeleted)
             })
         })
     })
