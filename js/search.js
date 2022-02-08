@@ -231,7 +231,13 @@ liIngredientList.forEach((li) => {
         console.log(filteredByTagRecipe)
 
         // filtre la liste d'ingredients en fonction des recettes affichées
-        // displayIngredientList(filteredByTagRecipe)
+        let tempIngredient = [];
+        for (let i = 0; i < filteredByTagRecipe.length; i++) {
+            for (let j = 0; j < filteredByTagRecipe[i].ingredients.length; j++) {
+                tempIngredient.push(filteredByTagRecipe[i].ingredients[j].ingredient);
+            }
+        }
+        displayIngredientList(tempIngredient);
 
         //Suppression des tags
         // PROBLEME AVEC LE MARGIN QUAND LES AUTRE TAGS SONT OUVERTS
@@ -241,6 +247,7 @@ liIngredientList.forEach((li) => {
                 e.target.parentNode.remove()
                 const filteredByTagDeleted = applyFilter(filteredRecipe);
                 displayRecipeList(filteredByTagDeleted)
+                displayIngredientList(ingredientList);
             })
         })
     })
