@@ -25,7 +25,6 @@ let filteredIngredient = [];
 let filteredAppliance = [];
 let filteredUstensil = [];
 const filtres = document.getElementById('filtres');
-// const filterTagDiv = document.querySelector('.filterTagDiv');
 const filterTagDivIng = document.getElementById("filterTagDivIng");
 const filterTagDivApp = document.getElementById("filterTagDivApp");
 const filterTagDivUst = document.getElementById("filterTagDivUst");
@@ -229,8 +228,12 @@ liIngredientList.forEach((li) => {
         filterTagDivApp.style.marginLeft = '-117px';
         const filteredByTagRecipe = applyFilter(filteredRecipe);
         displayRecipeList(filteredByTagRecipe)
+        console.log(filteredByTagRecipe)
 
-        ///////////////////////// SUPPRESSION DE TAG
+        // filtre la liste d'ingredients en fonction des recettes affichées
+        // displayIngredientList(filteredByTagRecipe)
+
+        //Suppression des tags
         // PROBLEME AVEC LE MARGIN QUAND LES AUTRE TAGS SONT OUVERTS
         const cross = [...filterTagDivIng.querySelectorAll("i")];
         cross.forEach((i) => {
@@ -280,7 +283,7 @@ liUstensileList.forEach((li) => {
             `<div class="filterTagContainer tagUstensile">
             <div class="textTag" data-type="ust">${e.target.textContent}</div>
             <i class="far fa-times-circle"></i>
-        </div>`
+            </div>`
         filterTagDivUst.innerHTML += tagUstensile;
         filtres.style.marginTop = "5px";
         const filteredByTagRecipe = applyFilter(filteredRecipe);
