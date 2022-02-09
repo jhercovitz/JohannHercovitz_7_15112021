@@ -228,16 +228,11 @@ liIngredientList.forEach((li) => {
         filterTagDivApp.style.marginLeft = '-117px';
         const filteredByTagRecipe = applyFilter(filteredRecipe);
         displayRecipeList(filteredByTagRecipe)
-        console.log(filteredByTagRecipe)
 
         // filtre la liste d'ingredients en fonction des recettes affichées
-        let tempIngredient = [];
-        for (let i = 0; i < filteredByTagRecipe.length; i++) {
-            for (let j = 0; j < filteredByTagRecipe[i].ingredients.length; j++) {
-                tempIngredient.push(filteredByTagRecipe[i].ingredients[j].ingredient);
-            }
-        }
-        displayIngredientList(tempIngredient);
+        let filteredIngredientList = generateIngredients(filteredByTagRecipe)
+        displayIngredientList(filteredIngredientList);
+        // ne peux pas ajouter plusieurs tags
 
         //Suppression des tags
         // PROBLEME AVEC LE MARGIN QUAND LES AUTRE TAGS SONT OUVERTS
@@ -248,6 +243,7 @@ liIngredientList.forEach((li) => {
                 const filteredByTagDeleted = applyFilter(filteredRecipe);
                 displayRecipeList(filteredByTagDeleted)
                 displayIngredientList(ingredientList);
+                // une fois,la liste mise à jour, ne peux pas ajouter de tags
             })
         })
     })
@@ -271,6 +267,8 @@ liApplianceList.forEach((li) => {
         filterTagDivUst.style.marginLeft = '-327px'
         const filteredByTagRecipe = applyFilter(filteredRecipe);
         displayRecipeList(filteredByTagRecipe)
+        let filteredApplianceList = generateAppliance(filteredByTagRecipe)
+        displayApplianceList(filteredApplianceList);
 
         const cross = [...filterTagDivApp.querySelectorAll("i")];
         cross.forEach((i) => {
@@ -278,6 +276,7 @@ liApplianceList.forEach((li) => {
                 e.target.parentNode.remove()
                 const filteredByTagDeleted = applyFilter(filteredRecipe);
                 displayRecipeList(filteredByTagDeleted)
+                displayApplianceList(applianceList)
             })
         })
     })
@@ -295,6 +294,8 @@ liUstensileList.forEach((li) => {
         filtres.style.marginTop = "5px";
         const filteredByTagRecipe = applyFilter(filteredRecipe);
         displayRecipeList(filteredByTagRecipe)
+        let filteredUstensilList = generateUstensils(filteredByTagRecipe)
+        displayUstensilList(filteredUstensilList);
 
         const cross = [...filterTagDivUst.querySelectorAll("i")];
         cross.forEach((i) => {
@@ -302,6 +303,7 @@ liUstensileList.forEach((li) => {
                 e.target.parentNode.remove()
                 const filteredByTagDeleted = applyFilter(filteredRecipe);
                 displayRecipeList(filteredByTagDeleted)
+                displayUstensilList(ustensilList)
             })
         })
     })
