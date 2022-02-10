@@ -5,14 +5,14 @@ export function generateIngredients(recipeList) {
             tempIngredient.push(recipeList[i].ingredients[j].ingredient);
         }
     }
-    return [...new Set(tempIngredient)];
+    return [...new Set(tempIngredient)].sort();
 }
 
 export function generateAppliance(appareils) {
     let tempAppliance = [];
     tempAppliance = appareils.map(appliance => `${appliance.appliance}`);
     // document.getElementById('appareil').innerHTML = applianceList;
-    return [...new Set(tempAppliance)];
+    return [...new Set(tempAppliance)].sort();
 }
 
 export function generateUstensils(recipeList) {
@@ -22,5 +22,5 @@ export function generateUstensils(recipeList) {
             tempUstensile.push(recipeList[i].ustensils[j])
         }
     }
-    return [...new Set(tempUstensile)];
+    return [...new Set(tempUstensile)].sort();
 }
