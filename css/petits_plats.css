@@ -328,23 +328,21 @@ li {
 .filterTagDiv {
     display: flex;
     margin-left: 5%;
-    /* display: grid;
-    grid-template-columns: repeat(3, 211px); */
 }
 
 #filterTagDivIng {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 #filterTagDivApp {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 #filterTagDivUst {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .filterTagContainer {
@@ -361,21 +359,17 @@ li {
 
 .tagIngredient {
     background-color: #3282F7;
-    /* margin-left: 5%; */
-    /* grid-column: 1/2; */
+    margin-right: 20px;
 }
 
 .tagAppareil {
     background-color: #68D9A4;
-    margin-left: 210.5px;
-    /* grid-column: 2/3;
-    margin-top: -50px;
-    height: 0; */
+    margin-right: 20px;
 }
 
 .tagUstensile {
     background-color: #ED6454;
-    margin-left: 420px;
+    margin-right: 20px;
 }
 
 .textTag {

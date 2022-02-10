@@ -25,6 +25,7 @@ let filteredIngredient = [];
 let filteredAppliance = [];
 let filteredUstensil = [];
 const filtres = document.getElementById('filtres');
+// const filterTagDiv = document.getElementsByClassName("filterTagDiv");
 const filterTagDivIng = document.getElementById("filterTagDivIng");
 const filterTagDivApp = document.getElementById("filterTagDivApp");
 const filterTagDivUst = document.getElementById("filterTagDivUst");
@@ -42,10 +43,16 @@ searchInput.addEventListener('input', function(e) {
 
     });
     displayRecipeList(filteredRecipe);
-    const filteredByTagRecipe = applyFilter(filteredRecipe);
-    let filteredIngredientList = generateIngredients(filteredByTagRecipe)
+
+    // filtre les listes des dropdowns en fonction de la barre de recherche
+    // probleme de latence lors de la saisie
+    const filteredBySearch = applyFilter(filteredRecipe);
+    let filteredIngredientList = generateIngredients(filteredBySearch)
     displayIngredientList(filteredIngredientList);
-    addIngredientListener();
+    let filteredApplianceList = generateAppliance(filteredBySearch)
+    displayApplianceList(filteredApplianceList);
+    let filteredUstensilList = generateUstensils(filteredBySearch)
+    displayUstensilList(filteredUstensilList);
 })
 
 
@@ -53,12 +60,10 @@ searchInput.addEventListener('input', function(e) {
 chevronIngredientDown.addEventListener('click', function(e) {
     const myParent = e.target.parentNode;
     const input = myParent.querySelector("input");
-    //  const placeholder = document.querySelector('::placeholder');
     input.style.width = "667px";
     input.style.height = "397px";
     input.style.paddingBottom = "320px";
     input.placeholder = "Recherche un ingrédient";
-    // placeholder.style.color = "red";
     e.target.style.display = "none";
     chevronIngredientUp.style.display = "block";
     chevronIngredientUp.style.marginLeft = "620px";
@@ -190,7 +195,7 @@ function displayUstensilList(listUst) {
 displayUstensilList(ustensilList)
 
 
-// filtre les listes des dropdowns en fonction de la saisie se l'utilisateur
+// filtre les listes des dropdowns en fonction de la saisie de l'utilisateur
 ingredientInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
     filteredIngredient = ingredientList.filter(function(ingredient) {
@@ -219,6 +224,7 @@ ustensileBig.addEventListener('input', function(e) {
 
 
 // création des tags
+// voir si la fonction ne fait pas trop de choses
 function addIngredientListener() {
     const liIngredientList = [...ingredientContainer.querySelectorAll("li")];
     liIngredientList.forEach((li) => {
@@ -230,14 +236,21 @@ function addIngredientListener() {
         </div>`
             filterTagDivIng.innerHTML += tagIngredient;
             filtres.style.marginTop = "5px";
-            filterTagDivApp.style.marginLeft = '-117px';
+
+            // filtre les recettes en fonction des tags cliqués
             const filteredByTagRecipe = applyFilter(filteredRecipe);
             displayRecipeList(filteredByTagRecipe)
 
-            // filtre la liste d'ingredients en fonction des recettes affichées
+            // filtre la liste des dropdowns en fonction des recettes affichées
             let filteredIngredientList = generateIngredients(filteredByTagRecipe)
             displayIngredientList(filteredIngredientList);
             addIngredientListener();
+            let filteredApplianceList = generateAppliance(filteredByTagRecipe)
+            displayApplianceList(filteredApplianceList);
+            addApplianceListener();
+            let filteredUstensilList = generateUstensils(filteredByTagRecipe)
+            displayUstensilList(filteredUstensilList);
+            addUstensilListener();
 
             //Suppression des tags
             const cross = [...filterTagDivIng.querySelectorAll("i")];
@@ -250,6 +263,12 @@ function addIngredientListener() {
                     let filteredIngredientList = generateIngredients(filteredByTagDeleted)
                     displayIngredientList(filteredIngredientList);
                     addIngredientListener();
+                    let filteredApplianceList = generateAppliance(filteredByTagDeleted)
+                    displayApplianceList(filteredApplianceList);
+                    addApplianceListener();
+                    let filteredUstensilList = generateUstensils(filteredByTagDeleted)
+                    displayUstensilList(filteredUstensilList)
+                    addUstensilListener();
                 })
             })
         })
@@ -268,13 +287,18 @@ function addApplianceListener() {
         </div>`
             filterTagDivApp.innerHTML += tagAppareil;
             filtres.style.marginTop = "5px";
-            filterTagDivUst.style.marginLeft = '-327px'
             const filteredByTagRecipe = applyFilter(filteredRecipe);
             displayRecipeList(filteredByTagRecipe)
 
             let filteredApplianceList = generateAppliance(filteredByTagRecipe)
             displayApplianceList(filteredApplianceList);
             addApplianceListener();
+            let filteredIngredientList = generateIngredients(filteredByTagRecipe)
+            displayIngredientList(filteredIngredientList);
+            addIngredientListener();
+            let filteredUstensilList = generateUstensils(filteredByTagRecipe)
+            displayUstensilList(filteredUstensilList);
+            addUstensilListener();
 
             const cross = [...filterTagDivApp.querySelectorAll("i")];
             cross.forEach((i) => {
@@ -286,6 +310,12 @@ function addApplianceListener() {
                     let filteredApplianceList = generateAppliance(filteredByTagDeleted)
                     displayApplianceList(filteredApplianceList);
                     addApplianceListener();
+                    let filteredIngredientList = generateIngredients(filteredByTagDeleted)
+                    displayIngredientList(filteredIngredientList);
+                    addIngredientListener();
+                    let filteredUstensilList = generateUstensils(filteredByTagDeleted)
+                    displayUstensilList(filteredUstensilList)
+                    addUstensilListener();
                 })
             })
         })
@@ -311,7 +341,12 @@ function addUstensilListener() {
             let filteredUstensilList = generateUstensils(filteredByTagRecipe)
             displayUstensilList(filteredUstensilList);
             addUstensilListener();
-
+            let filteredIngredientList = generateIngredients(filteredByTagRecipe)
+            displayIngredientList(filteredIngredientList);
+            addIngredientListener();
+            let filteredApplianceList = generateAppliance(filteredByTagRecipe)
+            displayApplianceList(filteredApplianceList);
+            addApplianceListener();
 
             const cross = [...filterTagDivUst.querySelectorAll("i")];
             cross.forEach((i) => {
@@ -323,6 +358,12 @@ function addUstensilListener() {
                     let filteredUstensilList = generateUstensils(filteredByTagDeleted)
                     displayUstensilList(filteredUstensilList)
                     addUstensilListener();
+                    let filteredIngredientList = generateIngredients(filteredByTagDeleted)
+                    displayIngredientList(filteredIngredientList);
+                    addIngredientListener();
+                    let filteredApplianceList = generateAppliance(filteredByTagDeleted)
+                    displayApplianceList(filteredApplianceList);
+                    addApplianceListener();
                 })
             })
         })

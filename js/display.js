@@ -1,8 +1,5 @@
 import { recipes } from "./recipes.js"
 
-// let ingredientList = [];
-// let applianceList = [];
-// let ustensilList = [];
 // const ingredientContainer = document.getElementById('ingredient_container');
 // const appareilContainer = document.getElementById('appareil_container');
 // const ustensileContainer = document.getElementById('ustensile_container');
