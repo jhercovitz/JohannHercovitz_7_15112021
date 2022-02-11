@@ -332,17 +332,14 @@ li {
 
 #filterTagDivIng {
     display: flex;
-    /* flex-direction: column; */
 }
 
 #filterTagDivApp {
     display: flex;
-    /* flex-direction: column; */
 }
 
 #filterTagDivUst {
     display: flex;
-    /* flex-direction: column; */
 }
 
 .filterTagContainer {
