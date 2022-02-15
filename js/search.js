@@ -32,42 +32,28 @@ const filterTagDivUst = document.getElementById("filterTagDivUst");
 
 
 // filtre les recette en fonction de l'input
-// searchInput.addEventListener('input', function(e) {
-//     const userInput = e.target.value.toLowerCase();
-//     filteredRecipe = recipes.filter(function(recipe) {
-//         if (userInput.length < 3) {
-//             return recipes
-//         } else {
-//             return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
-//         }
-//     });
-//     displayRecipeList(filteredRecipe);
-
-
 searchInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
-    for (let i = 0; i < recipes.length; i++) {
+    filteredRecipe = recipes.filter(function(recipe) {
         if (userInput.length < 3) {
             return recipes
         } else {
             return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
         }
-    }
-});
-displayRecipeList(filteredRecipe);
+    });
+    displayRecipeList(filteredRecipe);
 
 
-
-// filtre les listes des dropdowns en fonction de la barre de recherche
-// probleme de latence lors de la saisie
-const filteredBySearch = applyFilter(filteredRecipe);
-let filteredIngredientList = generateIngredients(filteredBySearch)
-displayIngredientList(filteredIngredientList);
-let filteredApplianceList = generateAppliance(filteredBySearch)
-displayApplianceList(filteredApplianceList);
-let filteredUstensilList = generateUstensils(filteredBySearch)
-displayUstensilList(filteredUstensilList);
-// })
+    // filtre les listes des dropdowns en fonction de la barre de recherche
+    // probleme de latence lors de la saisie
+    const filteredBySearch = applyFilter(filteredRecipe);
+    let filteredIngredientList = generateIngredients(filteredBySearch)
+    displayIngredientList(filteredIngredientList);
+    let filteredApplianceList = generateAppliance(filteredBySearch)
+    displayApplianceList(filteredApplianceList);
+    let filteredUstensilList = generateUstensils(filteredBySearch)
+    displayUstensilList(filteredUstensilList);
+})
 
 
 // gère les évènements sur les dropdowns
