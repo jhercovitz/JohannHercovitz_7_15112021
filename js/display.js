@@ -1,10 +1,10 @@
 import { recipes } from "./recipes.js"
 
-// const ingredientContainer = document.getElementById('ingredient_container');
-// const appareilContainer = document.getElementById('appareil_container');
-// const ustensileContainer = document.getElementById('ustensile_container');
-// const chevronIngredientDown = document.getElementById('chevronIngredient')
-// const chevronIngredientUp = document.getElementById('chevronIngredientUp');
+const ingredientContainer = document.getElementById('ingredient_container');
+const appareilContainer = document.getElementById('appareil_container');
+const ustensileContainer = document.getElementById('ustensile_container');
+const chevronIngredientDown = document.getElementById('chevronIngredient')
+const chevronIngredientUp = document.getElementById('chevronIngredientUp');
 
 
 // Affichage des recettes
@@ -38,23 +38,24 @@ export function displayRecipeList(recipeList) {
 
 
 //  // Affichage des listes dans les dropdowns
-// export function displayIngredient(ingredient) {
-//     ingredientContainer.innerHTML += `<li>${ingredient}</li>`;
+export function displayIngredient(ingredient) {
+    ingredientContainer.innerHTML += `<li>${ingredient}</li>`;
 
-//     chevronIngredientDown.addEventListener('click', function() {
-//         ingredientContainer.style.display = "flex";
-//     })
-//     chevronIngredientUp.addEventListener('click', function() {
-//         ingredientContainer.style.display = "none";
-//     })
-// }
+    chevronIngredientDown.addEventListener('click', function() {
+        ingredientContainer.style.display = "flex";
+    })
+    chevronIngredientUp.addEventListener('click', function() {
+        ingredientContainer.style.display = "none";
+    })
+}
 
-// export function displayIngredientList(listIng) {
-//     ingredientContainer.innerHTML = "";
-//     listIng.forEach(function(ingredient) {
-//         displayIngredient(ingredient)
-//     });
-// }
+export function displayIngredientList(listIng) {
+    const ingredientContainer = document.getElementById('ingredient_container');
+    ingredientContainer.innerHTML = "";
+    listIng.forEach(function(ingredient) {
+        displayIngredient(ingredient)
+    });
+}
 // displayIngredientList(ingredientList)
 
 

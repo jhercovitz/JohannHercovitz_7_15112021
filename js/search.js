@@ -1,7 +1,7 @@
 import { recipes } from "./recipes.js"
 import { generateIngredients, generateAppliance, generateUstensils } from "./generate.js"
-// import { displayRecipe, displayRecipeList, displayIngredient, displayIngredientList, displayAppliance, displayApplianceList, displayUstensil, displayUstensil } from "./display.js";
-import { displayRecipeList } from "./display.js";
+// import { displayRecipe, displayRecipeList, , displayAppliance, displayApplianceList, displayUstensil, displayUstensil } from "./display.js";
+import { displayRecipeList, displayIngredient, displayIngredientList } from "./display.js";
 
 const searchInput = document.getElementById('recherche');
 let filteredRecipe = [...recipes];
@@ -34,15 +34,22 @@ const filterTagDivUst = document.getElementById("filterTagDivUst");
 // filtre les recette en fonction de l'input
 searchInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
-    filteredRecipe = recipes.filter(function(recipe) {
-        if (userInput.length < 3) {
-            return recipes
-        } else {
-            return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
-        }
-    });
-    displayRecipeList(filteredRecipe);
 
+    if (userInput.length < 3) {
+        filteredRecipe = [...recipes];
+    } else {
+        filteredRecipe = recipes.filter(function(recipe) {
+            return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
+        })
+    }
+    // filteredRecipe = recipes.filter(function(recipe) {
+    //     if (userInput.length < 3) {
+    //         recipes
+    //     } else {
+    //         return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
+    //     }
+    // });
+    displayRecipeList(filteredRecipe);
 
     // filtre les listes des dropdowns en fonction de la barre de recherche
     // probleme de latence lors de la saisie
@@ -135,23 +142,23 @@ ustensilList = generateUstensils(recipes)
 
 
 // affichage des listes dans les dropdowns
-function displayIngredient(ingredient) {
-    ingredientContainer.innerHTML += `<li>${ingredient}</li>`;
+// function displayIngredient(ingredient) {
+//     ingredientContainer.innerHTML += `<li>${ingredient}</li>`;
 
-    chevronIngredientDown.addEventListener('click', function() {
-        ingredientContainer.style.display = "flex";
-    })
-    chevronIngredientUp.addEventListener('click', function() {
-        ingredientContainer.style.display = "none";
-    })
-}
+//     chevronIngredientDown.addEventListener('click', function() {
+//         ingredientContainer.style.display = "flex";
+//     })
+//     chevronIngredientUp.addEventListener('click', function() {
+//         ingredientContainer.style.display = "none";
+//     })
+// }
 
-function displayIngredientList(listIng) {
-    ingredientContainer.innerHTML = "";
-    listIng.forEach(function(ingredient) {
-        displayIngredient(ingredient)
-    });
-}
+// function displayIngredientList(listIng) {
+//     ingredientContainer.innerHTML = "";
+//     listIng.forEach(function(ingredient) {
+//         displayIngredient(ingredient)
+//     });
+// }
 displayIngredientList(ingredientList)
 
 
