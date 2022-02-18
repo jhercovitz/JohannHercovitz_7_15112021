@@ -5,6 +5,10 @@ const appareilContainer = document.getElementById('appareil_container');
 const ustensileContainer = document.getElementById('ustensile_container');
 const chevronIngredientDown = document.getElementById('chevronIngredient')
 const chevronIngredientUp = document.getElementById('chevronIngredientUp');
+const chevronAppareilDown = document.getElementById('chevronAppareil');
+const chevronAppareilUp = document.getElementById('chevronAppareilUp');
+const chevronUstensileDown = document.getElementById('chevronUstensile');
+const chevronUstensileUp = document.getElementById('chevronUstensileUp');
 
 
 // Affichage des recettes
@@ -56,44 +60,40 @@ export function displayIngredientList(listIng) {
         displayIngredient(ingredient)
     });
 }
-// displayIngredientList(ingredientList)
 
 
-// export function displayAppliance(appliance) {
-//     appareilContainer.innerHTML += `<li>${appliance}</li>`;
+export function displayAppliance(appliance) {
+    appareilContainer.innerHTML += `<li>${appliance}</li>`;
 
-//     chevronAppareilDown.addEventListener('click', function() {
-//         appareilContainer.style.display = "flex";
-//     })
-//     chevronAppareilUp.addEventListener('click', function() {
-//         appareilContainer.style.display = "none";
-//     })
-// }
+    chevronAppareilDown.addEventListener('click', function() {
+        appareilContainer.style.display = "flex";
+    })
+    chevronAppareilUp.addEventListener('click', function() {
+        appareilContainer.style.display = "none";
+    })
+}
 
-// export function displayApplianceList(listApp) {
-//     appareilContainer.innerHTML = "";
-//     listApp.forEach(function(appliance) {
-//         displayAppliance(appliance)
-//     });
-// }
-// displayApplianceList(applianceList)
+export function displayApplianceList(listApp) {
+    appareilContainer.innerHTML = "";
+    listApp.forEach(function(appliance) {
+        displayAppliance(appliance)
+    });
+}
 
+export function displayUstensil(ustensil) {
+    ustensileContainer.innerHTML += `<li>${ustensil}</li>`;
 
-// export function displayUstensil(ustensil) {
-//     ustensileContainer.innerHTML += `<li>${ustensil}</li>`;
+    chevronUstensileDown.addEventListener('click', function() {
+        ustensileContainer.style.display = "flex";
+    })
+    chevronUstensileUp.addEventListener('click', function() {
+        ustensileContainer.style.display = "none";
+    })
+}
 
-//     chevronUstensileDown.addEventListener('click', function() {
-//         ustensileContainer.style.display = "flex";
-//     })
-//     chevronUstensileUp.addEventListener('click', function() {
-//         ustensileContainer.style.display = "none";
-//     })
-// }
-
-// export function displayUstensilList(listUst) {
-//     ustensileContainer.innerHTML = "";
-//     listUst.forEach(function(ustensil) {
-//         displayUstensil(ustensil)
-//     });
-// }
-// displayUstensilList(ustensilList)
+export function displayUstensilList(listUst) {
+    ustensileContainer.innerHTML = "";
+    listUst.forEach(function(ustensil) {
+        displayUstensil(ustensil)
+    });
+}

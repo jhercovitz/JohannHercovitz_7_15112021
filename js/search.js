@@ -1,7 +1,6 @@
 import { recipes } from "./recipes.js"
 import { generateIngredients, generateAppliance, generateUstensils } from "./generate.js"
-// import { displayRecipe, displayRecipeList, , displayAppliance, displayApplianceList, displayUstensil, displayUstensil } from "./display.js";
-import { displayRecipeList, displayIngredient, displayIngredientList } from "./display.js";
+import { displayRecipeList, displayIngredientList, displayApplianceList, displayUstensilList } from "./display.js";
 
 const searchInput = document.getElementById('recherche');
 let filteredRecipe = [...recipes];
@@ -25,7 +24,6 @@ let filteredIngredient = [];
 let filteredAppliance = [];
 let filteredUstensil = [];
 const filtres = document.getElementById('filtres');
-// const filterTagDiv = document.getElementsByClassName("filterTagDiv");
 const filterTagDivIng = document.getElementById("filterTagDivIng");
 const filterTagDivApp = document.getElementById("filterTagDivApp");
 const filterTagDivUst = document.getElementById("filterTagDivUst");
@@ -42,14 +40,6 @@ searchInput.addEventListener('input', function(e) {
             return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
         })
     }
-    // filteredRecipe = recipes.filter(function(recipe) {
-    //     if (userInput.length < 3) {
-    //         recipes
-    //     } else {
-    //         return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
-    //     }
-    // });
-    displayRecipeList(filteredRecipe);
 
     // filtre les listes des dropdowns en fonction de la barre de recherche
     // probleme de latence lors de la saisie
@@ -141,67 +131,6 @@ applianceList = generateAppliance(recipes);
 ustensilList = generateUstensils(recipes)
 
 
-// affichage des listes dans les dropdowns
-// function displayIngredient(ingredient) {
-//     ingredientContainer.innerHTML += `<li>${ingredient}</li>`;
-
-//     chevronIngredientDown.addEventListener('click', function() {
-//         ingredientContainer.style.display = "flex";
-//     })
-//     chevronIngredientUp.addEventListener('click', function() {
-//         ingredientContainer.style.display = "none";
-//     })
-// }
-
-// function displayIngredientList(listIng) {
-//     ingredientContainer.innerHTML = "";
-//     listIng.forEach(function(ingredient) {
-//         displayIngredient(ingredient)
-//     });
-// }
-displayIngredientList(ingredientList)
-
-
-function displayAppliance(appliance) {
-    appareilContainer.innerHTML += `<li>${appliance}</li>`;
-
-    chevronAppareilDown.addEventListener('click', function() {
-        appareilContainer.style.display = "flex";
-    })
-    chevronAppareilUp.addEventListener('click', function() {
-        appareilContainer.style.display = "none";
-    })
-}
-
-function displayApplianceList(listApp) {
-    appareilContainer.innerHTML = "";
-    listApp.forEach(function(appliance) {
-        displayAppliance(appliance)
-    });
-}
-displayApplianceList(applianceList)
-
-
-function displayUstensil(ustensil) {
-    ustensileContainer.innerHTML += `<li>${ustensil}</li>`;
-
-    chevronUstensileDown.addEventListener('click', function() {
-        ustensileContainer.style.display = "flex";
-    })
-    chevronUstensileUp.addEventListener('click', function() {
-        ustensileContainer.style.display = "none";
-    })
-}
-
-function displayUstensilList(listUst) {
-    ustensileContainer.innerHTML = "";
-    listUst.forEach(function(ustensil) {
-        displayUstensil(ustensil)
-    });
-}
-displayUstensilList(ustensilList)
-
-
 // filtre les listes des dropdowns en fonction de la saisie de l'utilisateur
 ingredientInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
@@ -231,7 +160,6 @@ ustensileBig.addEventListener('input', function(e) {
 
 
 // création des tags
-// voir si la fonction ne fait pas trop de choses
 function addIngredientListener() {
     const liIngredientList = [...ingredientContainer.querySelectorAll("li")];
     liIngredientList.forEach((li) => {
@@ -281,7 +209,7 @@ function addIngredientListener() {
         })
     })
 }
-addIngredientListener();
+
 
 function addApplianceListener() {
     const liApplianceList = [...appareilContainer.querySelectorAll("li")];
@@ -328,7 +256,6 @@ function addApplianceListener() {
         })
     })
 }
-addApplianceListener();
 
 
 function addUstensilListener() {
@@ -376,7 +303,6 @@ function addUstensilListener() {
         })
     })
 }
-addUstensilListener();
 
 
 function applyFilter(recipeList) {
@@ -409,3 +335,12 @@ function applyFilter(recipeList) {
     }
     return tempRecipes;
 }
+
+
+displayRecipeList(filteredRecipe);
+displayIngredientList(ingredientList)
+displayApplianceList(applianceList)
+displayUstensilList(ustensilList)
+addIngredientListener();
+addApplianceListener();
+addUstensilListener();
