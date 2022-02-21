@@ -38,7 +38,7 @@ export function displayRecipeList(recipeList) {
         displayRecipe(recipe.name, recipe.description, recipe.time, recipe.ingredients)
     });
 }
- displayRecipeList(recipes)
+
 
 
 //  // Affichage des listes dans les dropdowns
@@ -97,3 +97,5 @@ export function displayUstensilList(listUst) {
         displayUstensil(ustensil)
     });
 }
+
+displayRecipeList(recipes)

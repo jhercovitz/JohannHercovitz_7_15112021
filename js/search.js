@@ -67,6 +67,29 @@ chevronIngredientDown.addEventListener('click', function(e) {
     chevronAppareilDown.style.marginLeft = "630px";
     chevronUstensileDown.style.marginLeft = "630px";
     section.style.marginTop = "-235px";
+
+    if (matchMedia('only screen and (max-width: 1024px)').matches) {
+        myParent.style.width = "94.5%";
+        ingredientContainer.style.width = "95%";
+        appareilBig.style.display = 'none';
+        chevronAppareilDown.style.display = 'none';
+        ustensileBig.style.display = 'none';
+        chevronUstensileDown.style.display = 'none';
+        chevronIngredientUp.style.marginLeft = "80%";
+        chevronIngredientUp.style.right = "1.8%";
+    }
+    if (matchMedia('only screen and (max-width: 600px)').matches) {
+        input.style.width = "100%";
+        input.style.height = "350px";
+        ingredientContainer.style.width = "95%";
+        appareilBig.style.display = 'none';
+        chevronAppareilDown.style.display = 'none';
+        ustensileBig.style.display = 'none';
+        chevronUstensileDown.style.display = 'none';
+        chevronIngredientUp.style.marginLeft = "80%";
+        chevronIngredientUp.style.top = "10px";
+        chevronIngredientUp.style.right = "1%";
+    }
 });
 chevronIngredientUp.addEventListener('click', function(e) {
     const myParent = e.target.parentNode;
@@ -80,9 +103,28 @@ chevronIngredientUp.addEventListener('click', function(e) {
     chevronAppareilDown.style.marginLeft = "152px";
     chevronUstensileDown.style.marginLeft = "152px";
     section.style.marginTop = "25px";
+
+    if (matchMedia('only screen and (max-width: 1024px)').matches) {
+        myParent.style.width = "190px";
+        input.style.width = "100%";
+        appareilBig.style.display = 'block';
+        chevronAppareilDown.style.display = 'block';
+        ustensileBig.style.display = 'block';
+        chevronUstensileDown.style.display = 'block';
+    }
+    if (matchMedia('only screen and (max-width: 600px)').matches) {
+        myParent.style.width = "29%";
+        input.style.width = "100%";
+        input.style.height = "70px";
+        appareilBig.style.display = 'block';
+        chevronAppareilDown.style.display = 'block';
+        ustensileBig.style.display = 'block';
+        chevronUstensileDown.style.display = 'block';
+    }
 });
 
-chevronAppareilDown.addEventListener('click', function() {
+chevronAppareilDown.addEventListener('click', function(e) {
+    const myParent = e.target.parentNode;
     appareilBig.style.width = "667px";
     appareilBig.style.height = "397px";
     appareilBig.style.paddingBottom = "320px";
@@ -92,8 +134,31 @@ chevronAppareilDown.addEventListener('click', function() {
     chevronAppareilUp.style.marginLeft = "620px";
     chevronUstensileDown.style.marginLeft = "630px";
     section.style.marginTop = "-235px";
+
+    if (matchMedia('only screen and (max-width: 1024px)').matches) {
+        myParent.style.width = "94.5%";
+        ingredientContainer.style.width = "95%";
+        ingredientInput.style.display = 'none';
+        chevronIngredientDown.style.display = 'none';
+        ustensileBig.style.display = 'none';
+        chevronUstensileDown.style.display = 'none';
+        chevronAppareilUp.style.marginLeft = "80%";
+        chevronAppareilUp.style.right = "1.8%";
+    }
+    if (matchMedia('only screen and (max-width: 600px)').matches) {
+        myParent.style.width = "94.5%"
+        appareilBig.style.width = "100%";
+        appareilBig.style.height = "350px";
+        ingredientInput.style.display = "none"
+        chevronIngredientDown.style.display = "none"
+        ustensileBig.style.display = 'none';
+        chevronUstensileDown.style.display = 'none';
+        chevronAppareilUp.style.top = "10px";
+        chevronAppareilUp.style.right = "1%";
+    }
 });
-chevronAppareilUp.addEventListener('click', function() {
+chevronAppareilUp.addEventListener('click', function(e) {
+    const myParent = e.target.parentNode;
     appareilBig.style.width = "190px";
     appareilBig.style.height = "75px";
     appareilBig.style.paddingBottom = "0";
@@ -102,9 +167,28 @@ chevronAppareilUp.addEventListener('click', function() {
     chevronAppareilUp.style.display = "none";
     chevronUstensileDown.style.marginLeft = "152px"
     section.style.marginTop = "25px";
+
+    if (matchMedia('only screen and (max-width: 1024px)').matches) {
+        myParent.style.width = "190px";
+        appareilBig.style.width = "100%";
+        ingredientInput.style.display = 'block';
+        chevronIngredientDown.style.display = 'block';
+        ustensileBig.style.display = 'block';
+        chevronUstensileDown.style.display = 'block';
+    }
+    if (matchMedia('only screen and (max-width: 600px)').matches) {
+        myParent.style.width = "29%";
+        appareilBig.style.width = "100%";
+        appareilBig.style.height = "70px";
+        ingredientInput.style.display = 'block';
+        chevronIngredientDown.style.display = 'block';
+        ustensileBig.style.display = 'block';
+        chevronUstensileDown.style.display = 'block';
+    }
 });
 
-chevronUstensileDown.addEventListener('click', function() {
+chevronUstensileDown.addEventListener('click', function(e) {
+    const myParent = e.target.parentNode;
     ustensileBig.style.width = "667px";
     ustensileBig.style.height = "397px";
     ustensileBig.style.paddingBottom = "320px";
@@ -113,8 +197,20 @@ chevronUstensileDown.addEventListener('click', function() {
     chevronUstensileUp.style.display = "block";
     chevronUstensileUp.style.marginLeft = "620px";
     section.style.marginTop = "-235px";
+    if (matchMedia('only screen and (max-width: 600px)').matches) {
+        myParent.style.width = "94.5%"
+        ustensileBig.style.width = "100%";
+        ustensileBig.style.height = "350px";
+        ingredientInput.style.display = "none"
+        chevronIngredientDown.style.display = "none"
+        appareilBig.style.display = 'none';
+        chevronAppareilDown.style.display = 'none';
+        chevronUstensileUp.style.top = "10px";
+        chevronUstensileUp.style.right = "1%";
+    }
 });
-chevronUstensileUp.addEventListener('click', function() {
+chevronUstensileUp.addEventListener('click', function(e) {
+    const myParent = e.target.parentNode;
     ustensileBig.style.width = "190px";
     ustensileBig.style.height = "75px";
     ustensileBig.style.paddingBottom = "0";
@@ -122,6 +218,15 @@ chevronUstensileUp.addEventListener('click', function() {
     chevronUstensileDown.style.display = "block";
     chevronUstensileUp.style.display = "none";
     section.style.marginTop = "25px";
+    if (matchMedia('only screen and (max-width: 600px)').matches) {
+        myParent.style.width = "29%";
+        ustensileBig.style.width = "100%";
+        ustensileBig.style.height = "70px";
+        ingredientInput.style.display = 'block';
+        chevronIngredientDown.style.display = 'block';
+        appareilBig.style.display = 'block';
+        chevronAppareilDown.style.display = 'block';
+    }
 });
 
 
