@@ -27,12 +27,6 @@ header {
     margin-bottom: 15px;
 }
 
-
-/* .logo {
-    width: 50%;
-    display: inline;
-} */
-
 #recherche {
     height: 70px;
     width: 89%;
@@ -369,10 +363,6 @@ li {
 }
 
 .fa-times-circle {
-    /* display: block;
-    color: white;
-    position: absolute;
-    z-index: 1; */
     font-size: 18px;
     cursor: pointer;
     margin-left: 5%;
