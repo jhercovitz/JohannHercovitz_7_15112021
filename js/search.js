@@ -42,7 +42,6 @@ searchInput.addEventListener('input', function(e) {
     }
 
     // filtre les listes des dropdowns en fonction de la barre de recherche
-    // probleme de latence lors de la saisie
     const filteredBySearch = applyFilter(filteredRecipe);
     let filteredIngredientList = generateIngredients(filteredBySearch)
     displayIngredientList(filteredIngredientList);
