@@ -32,14 +32,22 @@ const filterTagDivUst = document.getElementById("filterTagDivUst");
 // filtre les recette en fonction de l'input
 searchInput.addEventListener('input', function(e) {
     const userInput = e.target.value.toLowerCase();
-
+    filteredRecipe = [];
     if (userInput.length < 3) {
         filteredRecipe = [...recipes];
     } else {
-        filteredRecipe = recipes.filter(function(recipe) {
-            return recipe.name.toLowerCase().includes(userInput) || recipe.description.toLowerCase().includes(userInput) || recipe.ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))
-        })
+        for (let i = 0; i < recipes.length; i++) {
+            if (recipes[i].name.toLowerCase().includes(userInput)) {
+                filteredRecipe.push(recipes[i]);
+            } else if (recipes[i].description.toLowerCase().includes(userInput)) {
+                filteredRecipe.push(recipes[i]);
+            } else if (recipes[i].ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))) {
+                filteredRecipe.push(recipes[i]);
+            }
+        }
     }
+    displayRecipeList(filteredRecipe);
+
 
     // filtre les listes des dropdowns en fonction de la barre de recherche
     const filteredBySearch = applyFilter(filteredRecipe);
@@ -49,7 +57,7 @@ searchInput.addEventListener('input', function(e) {
     displayApplianceList(filteredApplianceList);
     let filteredUstensilList = generateUstensils(filteredBySearch)
     displayUstensilList(filteredUstensilList);
-})
+});
 
 
 // gère les évènements sur les dropdowns
@@ -469,40 +477,3 @@ displayUstensilList(ustensilList);
 addIngredientListener();
 addApplianceListener();
 addUstensilListener();
-
-
-// filtre les recette en fonction de l'input
-searchInput.addEventListener('input', function(e) {
-    const userInput = e.target.value.toLowerCase();
-    filteredRecipe = [];
-    if (userInput.length < 3) {
-        for (let i = 0; i < recipes.length; i++) {
-            if (recipes[i] == recipes.name.toLowerCase().includes(userInput)) {
-                filteredRecipe.push(recipes[i])
-                console.log(filteredRecipe)
-            }
-            if (i == recipes[i].description.toLowerCase().includes(userInput)) {
-                filteredRecipe.push(recipes[i])
-            }
-            if (i == recipes[i].ingredients.some((ingredientObj) => ingredientObj.ingredient.toLowerCase().includes(userInput))) {
-                filteredRecipe.push(recipes[i])
-            } else {
-                filteredRecipe.push(recipes);
-            }
-            console.log(filteredRecipe)
-        }
-    }
-})
-displayRecipeList(filteredRecipe);
-
-
-// filtre les listes des dropdowns en fonction de la barre de recherche
-// probleme de latence lors de la saisie
-// const filteredBySearch = applyFilter(filteredRecipe);
-// let filteredIngredientList = generateIngredients(filteredBySearch)
-// displayIngredientList(filteredIngredientList);
-// let filteredApplianceList = generateAppliance(filteredBySearch)
-// displayApplianceList(filteredApplianceList);
-// let filteredUstensilList = generateUstensils(filteredBySearch)
-// displayUstensilList(filteredUstensilList);
-// })
