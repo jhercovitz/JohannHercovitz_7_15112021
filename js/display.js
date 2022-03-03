@@ -67,6 +67,8 @@ export function displayAppliance(appliance) {
 
     chevronAppareilDown.addEventListener('click', function() {
         appareilContainer.style.display = "flex";
+        appareilContainer.style.flexDirection = "column"
+
     })
     chevronAppareilUp.addEventListener('click', function() {
         appareilContainer.style.display = "none";
