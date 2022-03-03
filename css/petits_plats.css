@@ -260,6 +260,7 @@ li {
     margin-right: 2%;
     list-style: none;
     cursor: pointer;
+    height: 35px;
 }
 
 #ingredient_container {
