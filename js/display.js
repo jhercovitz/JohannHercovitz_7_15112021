@@ -28,12 +28,12 @@ export function displayRecipe(name, description, time, ingredients) {
         <p class="p3">${description}</p>
         </div>
         </div>`;
-        document.querySelector('section').innerHTML += recipeCard;
+        document.querySelector('.section').innerHTML += recipeCard;
         }
 
 // Affichage des recettes filtrées
 export function displayRecipeList(recipeList) {
-    document.querySelector('section').innerHTML = "";
+    document.querySelector('.section').innerHTML = "";
     recipeList.forEach(function(recipe) {
         displayRecipe(recipe.name, recipe.description, recipe.time, recipe.ingredients)
     });

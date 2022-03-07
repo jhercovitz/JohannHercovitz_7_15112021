@@ -12,7 +12,7 @@ const chevronUstensileDown = document.getElementById('chevronUstensile');
 const chevronUstensileUp = document.getElementById('chevronUstensileUp');
 const appareilBig = document.getElementById('appareil');
 const ustensileBig = document.getElementById('ustensile');
-const section = document.querySelector('section');
+const section = document.querySelector('.section');
 let ingredientList = [];
 let applianceList = [];
 let ustensilList = [];
@@ -200,7 +200,6 @@ chevronUstensileDown.addEventListener('click', function(e) {
 
     if (matchMedia('only screen and (max-width: 1024px)').matches) {
         myParent.style.width = "94.5%";
-        // myParent.style.marginLeft = "-211px";
         ingredientInput.style.display = 'none';
         chevronIngredientDown.style.display = 'none';
         appareilBig.style.display = 'none';

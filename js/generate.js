@@ -11,7 +11,6 @@ export function generateIngredients(recipeList) {
 export function generateAppliance(appareils) {
     let tempAppliance = [];
     tempAppliance = appareils.map(appliance => `${appliance.appliance}`);
-    // document.getElementById('appareil').innerHTML = applianceList;
     return [...new Set(tempAppliance)].sort();
 }
 
