@@ -115,7 +115,6 @@ chevronIngredientUp.addEventListener('click', function(e) {
         chevronUstensileDown.style.display = 'block';
     }
     if (matchMedia('only screen and (max-width: 700px)').matches) {
-        myParent.style.width = "29%";
         input.style.width = "100%";
         input.style.height = "70px";
         appareilBig.style.display = 'block';
@@ -139,7 +138,6 @@ chevronAppareilDown.addEventListener('click', function(e) {
 
     if (matchMedia('only screen and (max-width: 1024px)').matches) {
         myParent.style.width = "94.5%";
-        myParent.style.marginLeft = "-211px";
         ingredientInput.style.display = 'none';
         chevronIngredientDown.style.display = 'none';
         ustensileBig.style.display = 'none';
@@ -180,7 +178,6 @@ chevronAppareilUp.addEventListener('click', function(e) {
         chevronUstensileDown.style.display = 'block';
     }
     if (matchMedia('only screen and (max-width: 700px)').matches) {
-        myParent.style.width = "29%";
         appareilBig.style.width = "100%";
         appareilBig.style.height = "70px";
         ingredientInput.style.display = 'block';
@@ -241,7 +238,6 @@ chevronUstensileUp.addEventListener('click', function(e) {
         chevronAppareilDown.style.display = 'block';
     }
     if (matchMedia('only screen and (max-width: 700px)').matches) {
-        myParent.style.width = "29%";
         ustensileBig.style.width = "100%";
         ustensileBig.style.height = "70px";
         ingredientInput.style.display = 'block';
