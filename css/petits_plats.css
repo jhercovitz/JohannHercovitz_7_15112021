@@ -25,6 +25,7 @@ header {
     display: block;
     margin-top: 25px;
     margin-bottom: 15px;
+    object-fit: contain;
 }
 
 #recherche {
@@ -260,6 +261,7 @@ li {
     margin-right: 2%;
     list-style: none;
     cursor: pointer;
+    height: 35px;
 }
 
 #ingredient_container {
@@ -383,15 +385,21 @@ li {
     border: 3px solid white;
 }
 
-@media only screen and (max-width: 1024px) {
-    #logo {
-        height: 75px;
+@media (min-width: 1024px) and (max-width: 1500px) {
+    .section {
+        justify-content: center;
     }
+}
+
+@media only screen and (max-width: 1024px) {
     .recettes {
         width: 45%;
     }
     .select_filtre {
         width: 190px;
+    }
+    .filtres {
+        justify-content: center;
     }
 }
 
@@ -399,16 +407,17 @@ li {
     body {
         font-size: 16px;
     }
-    #logo {
-        width: 25%;
-        height: 60px;
-    }
     #recherche::placeholder {
         font-size: 16px;
         opacity: 50%;
     }
+    #submit {
+        width: 7.5%;
+        margin-left: 81.5%;
+    }
     .filtres {
         margin-right: 1%;
+        flex-direction: column;
     }
     .gris_fonce {
         height: 130px;
@@ -423,16 +432,13 @@ li {
     }
     .item {
         margin-top: -56px;
-        margin-right: 28%;
+        margin-right: 34%;
     }
     .p4 {
         font-size: 16px;
     }
     .description {
         margin-right: 3%;
-    }
-    .select_filtre {
-        width: 29%;
     }
     #ingredient {
         width: 100%;
