@@ -45,11 +45,14 @@ searchInput.addEventListener('input', function(e) {
     const filteredBySearch = applyFilter(filteredRecipe);
     let filteredIngredientList = generateIngredients(filteredBySearch)
     displayIngredientList(filteredIngredientList);
+    addIngredientListener();
     let filteredApplianceList = generateAppliance(filteredBySearch)
     displayApplianceList(filteredApplianceList);
+    addApplianceListener();
     let filteredUstensilList = generateUstensils(filteredBySearch)
     displayUstensilList(filteredUstensilList);
-})
+    addUstensilListener();
+});
 
 
 // gère les évènements sur les dropdowns
