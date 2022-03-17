@@ -91,7 +91,7 @@ chevronIngredientDown.addEventListener('click', function(e) {
         chevronUstensileDown.style.display = 'none';
         chevronIngredientUp.style.marginLeft = "80%";
         chevronIngredientUp.style.top = "10px";
-        chevronIngredientUp.style.right = "1%";
+        chevronIngredientUp.style.right = "4%";
     }
 });
 chevronIngredientUp.addEventListener('click', function(e) {
@@ -155,7 +155,7 @@ chevronAppareilDown.addEventListener('click', function(e) {
         ustensileBig.style.display = 'none';
         chevronUstensileDown.style.display = 'none';
         chevronAppareilUp.style.top = "10px";
-        chevronAppareilUp.style.right = "1%";
+        chevronAppareilUp.style.right = "4%";
     }
 });
 chevronAppareilUp.addEventListener('click', function(e) {
@@ -217,7 +217,7 @@ chevronUstensileDown.addEventListener('click', function(e) {
         appareilBig.style.display = 'none';
         chevronAppareilDown.style.display = 'none';
         chevronUstensileUp.style.top = "10px";
-        chevronUstensileUp.style.right = "1%";
+        chevronUstensileUp.style.right = "4%";
     }
 });
 chevronUstensileUp.addEventListener('click', function(e) {
